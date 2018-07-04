@@ -1,9 +1,6 @@
-.idea
 .gradle
 /build/
 !gradle/wrapper/gradle-wrapper.jar
-gradlew
-gradlew.bat
 
 ### STS ###
 .apt_generated
@@ -13,6 +10,12 @@ gradlew.bat
 .settings
 .springBeans
 .sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
 
 ### NetBeans ###
 nbproject/private/
