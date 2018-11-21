@@ -1,7 +1,6 @@
-package com.learning.java.designPattern.Intro;
+package com.learning.java.designPattern.stratery;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Setter

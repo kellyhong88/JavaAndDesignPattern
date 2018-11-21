@@ -1,4 +1,4 @@
-package com.learning.java.designPattern.Intro;
+package com.learning.java.designPattern.stratery;
 
 public class FlyNoWay implements FlyBehavior {
 
