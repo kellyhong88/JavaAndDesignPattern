@@ -7,9 +7,9 @@ public class TestFatherAndSon {
         Thread father = new FatherThread();
         father.start();
         System.out.println("Story not ends");
-
         try {
-            Thread.sleep(15000);
+            //join含义：等待father线程执行完毕，主线程才继续执行
+            father.join();
         } catch (InterruptedException e) {}
         System.out.println("Story now ends");
     }

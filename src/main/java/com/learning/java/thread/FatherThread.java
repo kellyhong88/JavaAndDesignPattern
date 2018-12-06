@@ -6,7 +6,7 @@ public class FatherThread extends Thread {
         System.out.println("Father wants to smoke and then ask his son to buy cigarettes");
         Thread son = new SonThread();
         son.start();
-        System.out.println("Son goes out and Father is waiting for him to get cigarettes home");
+        System.out.println("Father is waiting for his son to get cigarettes home");
         try {
             //join含义：等待son线程执行完毕，father线程才继续执行
             son.join();
