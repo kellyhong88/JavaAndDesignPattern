@@ -14,17 +14,20 @@ public class EnergySystem {
     /**
      * 同步锁
      * 实现互斥
+     *
+     * Create an object named 'lock' specially to use as a Lock
+     * e.g. final Object lock = new Object();
      */
     private final Byte[] lock = new Byte[0];
 
     /**
      * @param numberOfBoxes:       能量盒子的数量
-     * @param InitialEnergyPerBox: 每个能量盒子含有的初始能量值
+     * @param initialEnergyPerBox: 每个能量盒子含有的初始能量值
      */
-    public EnergySystem(int numberOfBoxes, double InitialEnergyPerBox) {
+    public EnergySystem(int numberOfBoxes, double initialEnergyPerBox) {
         this.energyBoxes = new double[numberOfBoxes];
         for (int i = 0; i < energyBoxes.length; i++)
-            energyBoxes[i] = InitialEnergyPerBox;
+            energyBoxes[i] = initialEnergyPerBox;
     }
 
     /**
@@ -43,13 +46,14 @@ public class EnergySystem {
         if (amount > getTotalEnergies())
             return;
 
+        /** 'synchronized' on object 'lock' means getting the lock of object 'lock' */
         synchronized (lock) {
-
             /**
              * 保证条件不满足时任务会被阻挡，而不是继续竞争CPU资源
              * */
             if (energyBoxes[from] < amount) {
                 try {
+                    /** wait on the condition queue of object 'lock' */
                     lock.wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -63,8 +67,11 @@ public class EnergySystem {
 
             /**
              * 唤醒所有在lock对象上等待的线程
+             *
+             * notify all other threads waiting on the condition queue of object 'lock'
+             * and all the threads notified will compete for the lock of object 'lock'
+             * and one of them will win and go running again
              * */
-//            lock.notify();
             lock.notifyAll();
 
         }

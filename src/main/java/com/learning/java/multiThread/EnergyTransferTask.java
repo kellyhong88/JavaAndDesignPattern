@@ -1,11 +1,14 @@
 package com.learning.java.multiThread;
 
+import lombok.Setter;
+
 /**
  * 能量转移任务(线程类)
  */
+@Setter
 public class EnergyTransferTask implements Runnable {
 
-    volatile static boolean keepRunning = true;
+    volatile boolean keepRunning = true;
 
     /**
      * 共享的能量世界
@@ -17,7 +20,7 @@ public class EnergyTransferTask implements Runnable {
     /**
      * 单次最大转移能量单元
      */
-    private final double MAX_AMOUNT = 10000.00;
+    private final double MAX_AMOUNT = 10.00;
 
     /**
      * 最大休眠时间(毫秒)
@@ -46,22 +49,4 @@ public class EnergyTransferTask implements Runnable {
 
     }
 
-    public static void main(String[] args) {
-
-        int boxNum = 100;
-        double initialEnergyPerBox = 1000.00;
-
-        EnergySystem energySystem = new EnergySystem(boxNum, initialEnergyPerBox);
-        for (int i = 0; i < boxNum; i++) {
-            EnergyTransferTask task = new EnergyTransferTask(energySystem, i);
-            Thread thread = new Thread(task, "盒子[" + String.valueOf(i) + "]转移任务");
-            thread.start();
-        }
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        keepRunning = false;
-    }
 }
