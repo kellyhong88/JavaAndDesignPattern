@@ -9,7 +9,7 @@ public class Consumer implements Runnable {
 
     private QueueBuffer queueBuffer;
 
-    private boolean keepRunning = true;
+    volatile boolean keepRunning = true;
 
     public Consumer(QueueBuffer queueBuffer) {
         this.queueBuffer = queueBuffer;

@@ -46,10 +46,10 @@ public class EnergySystem {
         if (amount > getTotalEnergies())
             return;
 
-        /** 'synchronized' on object 'lock' means getting the lock of object 'lock' */
+        /** 'synchronized' on object 'lock' means getting the intrinsic lock of object 'lock' */
         synchronized (lock) {
             /**
-             * 保证条件不满足时任务会被阻挡，而不是继续竞争CPU资源
+             * 保证条件不满足时任务会被阻塞，而不是继续竞争CPU资源
              * */
             if (energyBoxes[from] < amount) {
                 try {

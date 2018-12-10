@@ -9,7 +9,7 @@ public class Producer implements Runnable {
 
     private QueueBuffer queueBuffer;
 
-    private boolean keepRunning = true;
+    volatile boolean keepRunning = true;
 
     public Producer(QueueBuffer queueBuffer) {
         this.queueBuffer = queueBuffer;

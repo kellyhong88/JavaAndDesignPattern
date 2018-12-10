@@ -2,7 +2,7 @@ package com.learning.java.lock;
 
 public class LockDemo {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         QueueBuffer queueBuffer = new QueueBuffer();
         Producer producer = new Producer(queueBuffer);
         Consumer consumer = new Consumer(queueBuffer);
