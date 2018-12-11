@@ -12,7 +12,7 @@ public class FixedThreadPool {
         for (int i = 0; i < 20; i++) {
             final int index = i + 1;
 
-            Runnable runnable = new Runnable() {
+            fixedThreadPool.execute(new Runnable() {
                 @Override
                 public void run() {
                     System.out.println(index);
@@ -22,9 +22,7 @@ public class FixedThreadPool {
                         e.printStackTrace();
                     }
                 }
-            };
-
-            fixedThreadPool.execute(runnable);
+            });
         }
 
         fixedThreadPool.shutdown();

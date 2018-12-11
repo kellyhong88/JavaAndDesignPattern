@@ -13,19 +13,17 @@ public class CachedThreadPool {
             final int index = i + 1;
 
             try {
-                Thread.sleep(index * 1000);
+                Thread.sleep(index * 500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 
-            Runnable runnable = new Runnable() {
+            cachedThreadPool.execute(new Runnable() {
                 @Override
                 public void run() {
                     System.out.println(index);
                 }
-            };
-
-            cachedThreadPool.execute(runnable);
+            });
         }
 
         cachedThreadPool.shutdown();

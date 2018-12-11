@@ -12,7 +12,7 @@ public class SingleThreadPool {
         for (int i = 0; i < 10; i++) {
             final int index = i + 1;
 
-            Runnable runnable = new Runnable() {
+            singleThreadPool.execute(new Runnable() {
                 @Override
                 public void run() {
                     System.out.println(index);
@@ -22,9 +22,7 @@ public class SingleThreadPool {
                         e.printStackTrace();
                     }
                 }
-            };
-
-            singleThreadPool.execute(runnable);
+            });
         }
 
         singleThreadPool.shutdown();
