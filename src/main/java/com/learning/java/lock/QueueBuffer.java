@@ -20,7 +20,7 @@ public class QueueBuffer {
 
     private boolean isValueSet = false;
 
-    /** 'synchronized' on method means getting the lock of the current object (this instance of QueueBuffer) */
+    /** 'synchronized' on method means competing for the lock of the current object (this instance of QueueBuffer) */
     synchronized void put(int newValue) {
         /*
          * if value is not yet set, producer should go to set the value instead of waiting
@@ -33,8 +33,8 @@ public class QueueBuffer {
         producerWorking(newValue);
 
         /** notify another thread waiting on the condition queue of the current object (this instance of QueueBuffer)
-         *  and the thread notified will get the lock of the current object and go running again */
-        notify();
+         *  and the thread notified will compete for the lock of the current object and may be runnable again */
+        this.notify();
     }
 
     private void waiting() {
@@ -63,7 +63,7 @@ public class QueueBuffer {
 
         consumerWorking();
 
-        notify();
+        this.notify();
     }
 
     private void consumerWorking() {

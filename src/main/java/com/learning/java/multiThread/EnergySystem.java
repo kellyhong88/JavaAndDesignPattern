@@ -46,7 +46,7 @@ public class EnergySystem {
         if (amount > getTotalEnergies())
             return;
 
-        /** 'synchronized' on object 'lock' means getting the intrinsic lock of object 'lock' */
+        /** 'synchronized' on object 'lock' means competing for the intrinsic lock of object 'lock' */
         synchronized (lock) {
             /**
              * 保证条件不满足时任务会被阻塞，而不是继续竞争CPU资源
@@ -70,7 +70,7 @@ public class EnergySystem {
              *
              * notify all other threads waiting on the condition queue of object 'lock'
              * and all the threads notified will compete for the lock of object 'lock'
-             * and one of them will win and go running again
+             * and one of them will win and be runnable again
              * */
             lock.notifyAll();
 
