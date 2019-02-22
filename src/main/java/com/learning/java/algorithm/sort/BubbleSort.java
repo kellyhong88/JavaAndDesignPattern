@@ -36,12 +36,9 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        int[] array = {8, 5, 6, 2, 0, 9, 3, 1, 4, 7};
-        BubbleSort.sort(array);
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + ", ");
-        }
-        System.out.println();
+        MyArray.print();
+        BubbleSort.sort(MyArray.array);
+        MyArray.print();
     }
 
 }
