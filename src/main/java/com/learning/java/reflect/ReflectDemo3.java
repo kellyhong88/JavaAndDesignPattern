@@ -3,6 +3,7 @@ package com.learning.java.reflect;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -43,6 +44,13 @@ public class ReflectDemo3 {
 
         System.out.println("类的成员方法------------------------------------------------");
         for (Method method : methods) {
+
+            /**
+             * 获取方法的访问权限（Modifiers：修饰符）
+             * */
+            int modifiers = method.getModifiers();
+            System.out.print(Modifier.toString(modifiers) + " ");
+
             /**
              * 获取方法的返回值类型的类类型
              * */
