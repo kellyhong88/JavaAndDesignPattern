@@ -3,6 +3,8 @@ package com.learning.java.reflect;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ClassDemo3 {
 
@@ -18,8 +20,8 @@ public class ClassDemo3 {
         Class c = object.getClass();
 
         /**
-         * 获取方法的全名（包含类的package路径）
-         * 以及方法的简名（不包含类的package路径）
+         * 获取类的全名（包含类的package路径）
+         * 以及类的简名（不包含类的package路径）
          * */
         System.out.println("类的名称---------------------------------------------------");
         System.out.println("类的全名：" + c.getName());
@@ -125,9 +127,9 @@ public class ClassDemo3 {
 
     public static void main(String[] args) {
         ClassDemo3.printClassInfo("hello");
-//        ClassDemo3.printClassInfo(new Integer(1));
-//        ClassDemo3.printClassInfo(new Object());
-//        ClassDemo3.printClassInfo(new ArrayList<>());
-//        ClassDemo3.printClassInfo(new HashMap<>());
+        ClassDemo3.printClassInfo(new Integer(1));
+        ClassDemo3.printClassInfo(new Object());
+        ClassDemo3.printClassInfo(new ArrayList<>());
+        ClassDemo3.printClassInfo(new HashMap<>());
     }
 }
