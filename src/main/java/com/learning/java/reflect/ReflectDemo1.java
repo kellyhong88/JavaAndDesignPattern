@@ -5,7 +5,7 @@ package com.learning.java.reflect;
  * 类可以实例化自己的对象们，但类本身也是一个对象
  * 类是java.lang.Class类的实例对象
  */
-public class ClassDemo1 {
+public class ReflectDemo1 {
 
     public static void main(String[] args) {
 

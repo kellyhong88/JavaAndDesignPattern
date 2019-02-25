@@ -2,7 +2,7 @@ package com.learning.java.reflect;
 
 import java.lang.reflect.Method;
 
-public class ClassDemo4 {
+public class ReflectDemo4 {
 
     public static void main(String[] args) {
 
@@ -66,12 +66,12 @@ class A {
     }
 
     protected String print(String a, String b) {
-        System.out.println("getDeclaredMethod()可以获取到protected权限的成员方法");
+        System.out.println("getDeclaredMethod() 可以获取到 protected权限 的成员方法");
         return a.toUpperCase() + " " + b.toUpperCase(); //转大写
     }
 
     private String print(String a) {
-        System.out.println("getDeclaredMethod()可以获取到private权限的成员方法");
+        System.out.println("getDeclaredMethod() 可以获取到 private权限 的成员方法");
         return a.toLowerCase(); //转小写
     }
 }

@@ -6,13 +6,13 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ClassDemo3 {
+public class ReflectDemo3 {
 
     /**
      * 打印类的信息
      * 包括类的名称、成员变量、成员函数、构造函数等
      */
-    public static void printClassInfo(Object object) {
+    public void printClassInfo(Object object) {
 
         /**
          * c是传入对象object的类对象的引用
@@ -24,8 +24,8 @@ public class ClassDemo3 {
          * 以及类的简名（不包含类的package路径）
          * */
         System.out.println("类的名称---------------------------------------------------");
-        System.out.println("类的全名：" + c.getName());
-        System.out.println("类的简名：" + c.getSimpleName());
+        System.out.println("Object类的全名：" + c.getName());
+        System.out.println("Object类的简名：" + c.getSimpleName());
         System.out.println("----------------------------------------------------------\n");
 
         /**
@@ -126,10 +126,11 @@ public class ClassDemo3 {
     }
 
     public static void main(String[] args) {
-        ClassDemo3.printClassInfo("hello");
-        ClassDemo3.printClassInfo(new Integer(1));
-        ClassDemo3.printClassInfo(new Object());
-        ClassDemo3.printClassInfo(new ArrayList<>());
-        ClassDemo3.printClassInfo(new HashMap<>());
+        ReflectDemo3 demo = new ReflectDemo3();
+        demo.printClassInfo("hello");
+        demo.printClassInfo(new Integer(1));
+        demo.printClassInfo(new Object());
+        demo.printClassInfo(new ArrayList<>());
+        demo.printClassInfo(new HashMap<>());
     }
 }

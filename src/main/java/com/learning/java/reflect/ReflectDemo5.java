@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * 通过Class，Method来认识范型的本质
  */
-public class ClassDemo5 {
+public class ReflectDemo5 {
 
     public static void main(String[] args) {
         ArrayList list = new ArrayList();

@@ -1,6 +1,6 @@
 package com.learning.java.reflect;
 
-public class ClassDemo2 {
+public class ReflectDemo2 {
 
     public static void main(String[] args) {
 
