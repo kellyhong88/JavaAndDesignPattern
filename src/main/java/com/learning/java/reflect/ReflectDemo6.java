@@ -1,5 +1,6 @@
 package com.learning.java.reflect;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
@@ -14,22 +15,40 @@ public class ReflectDemo6 {
         Class hClass = hope.getClass();
 
         try {
+            /**
+             * 通过 Method 的 getDeclaredMethod() 获取私有方法
+             * */
             Method method = hClass.getDeclaredMethod("privateMethod", String.class, int.class);
             if (method != null) {
                 /**
                  * 获取私有方法的访问权
-                 * 注意：这里只是获取访问权，并不是修改方法的实际权限（即原方法还是private权限）
                  * */
                 method.setAccessible(true);
                 method.invoke(hope, "Java Reflect ", 666);
             }
-        } catch (Exception e) {}
 
+            /**
+             * 通过 Field 的 getDeclaredField() 获取私有变量
+             * */
+            Field field = hClass.getDeclaredField("privateVariable");
+            System.out.println("Before modification: privateVariable = " + hope.getMsg());
+            if (field != null) {
+                /**
+                 * 获取私有变量的访问权
+                 * */
+                field.setAccessible(true);
+                System.out.println("By reflection we can get the original value of this Field: " + field.get(hope));
+                field.set(hope, "Modified");
+                System.out.println("By reflection we can set a new value for this Field: " + field.get(hope));
+            }
+            System.out.println("After modification: privateVariable = " + hope.getMsg());
+
+        } catch (Exception e) {
+        }
     }
 }
 
 class Hope {
-
     private String privateVariable = "Original";
 
     private void privateMethod(String head, int tail) {
