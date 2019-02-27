@@ -20,7 +20,7 @@ public class QuickSort {
         }
 
         int i = left, j = right, temp1, temp2;
-        temp1 = array[left]; //取第一个数为基准数，且暂存下基准数
+        temp1 = array[left]; //取第一个数为基准数，暂存下基准数
 
         while (i != j) {
             //先从右边开始找，找比基准数小的数（找到后需把这个数移至基准数的左边）
