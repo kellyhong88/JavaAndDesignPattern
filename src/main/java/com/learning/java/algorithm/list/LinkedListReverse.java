@@ -2,6 +2,7 @@ package com.learning.java.algorithm.list;
 
 /**
  * 单向链表的逆序算法
+ * Reverse Linked List
  */
 public class LinkedListReverse {
 
