@@ -58,15 +58,19 @@ public class BinaryTree {
         List<Integer> postAnswer = new ArrayList<>();
         BinaryTree tree = new BinaryTree();
         Node root = tree.new Node(0);
+
         /**
          * initialize an binary tree
          * */
+
         preOrderTraversal(root, preAnswer);
         inOrderTraversal(root, inAnswer);
         postOrderTraversal(root, postAnswer);
+
         /**
          * print out preAnswers, inAnswers, postAnswers
          * */
+
     }
 
 }
