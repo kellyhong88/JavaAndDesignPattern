@@ -11,4 +11,11 @@ public class MyArray {
         System.out.println();
     }
 
+    public static void print(int[] array2) {
+        for (int i = 0; i < array2.length; i++) {
+            System.out.print(array2[i] + ", ");
+        }
+        System.out.println();
+    }
+
 }

@@ -24,21 +24,45 @@ public class BubbleSort {
         }
         int len = array.length;
         int i, j, temp;
+        boolean isChange = false;
+
         for (i = 0; i < len - 1; i++) {
-            for (j = len - 1; j > i; j--) {
-                if (array[j] < array[j - 1]) {
+            for (j = 0; j < len - 1 - i; j++) {
+                if (array[j] > array[j + 1]) {
                     temp = array[j];
-                    array[j] = array[j - 1];
-                    array[j - 1] = temp;
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                    isChange = true;
                 }
             }
+            if (!isChange) break;
         }
+    }
+
+    static void sortRecursively(int[] array, int L, int R) {
+        if (array == null || array.length == 1 || L == R) {
+            return;
+        } else {
+            int temp;
+            for (int i = L; i < R; i++) {
+                if (array[i] > array[i + 1]) {
+                    temp = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = temp;
+                }
+            }
+            sortRecursively(array, L, R - 1);
+        }
+
     }
 
     public static void main(String[] args) {
         MyArray.print();
         BubbleSort.sort(MyArray.array);
         MyArray.print();
+        int[] array2 = {8, 5, 6, 2, 0, 9, 3, 1, 4, 7};
+        BubbleSort.sortRecursively(array2, 0, array2.length -1);
+        MyArray.print(array2);
     }
 
 }
