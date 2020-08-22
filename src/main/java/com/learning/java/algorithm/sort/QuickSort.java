@@ -53,9 +53,9 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        MyArray.print();
-        QuickSort.sort(MyArray.array, 0, MyArray.array.length - 1);
-        MyArray.print();
+        ArrayUtils.print();
+        QuickSort.sort(ArrayUtils.array, 0, ArrayUtils.array.length - 1);
+        ArrayUtils.print();
     }
 
 }
