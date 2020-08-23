@@ -22,7 +22,6 @@ public class ListReverse extends BaseList {
 
         head.next = null;
         head = p1;
-
         return head;
     }
 
