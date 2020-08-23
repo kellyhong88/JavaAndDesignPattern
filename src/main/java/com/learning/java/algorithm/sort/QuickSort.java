@@ -18,14 +18,14 @@ public class QuickSort {
         pivot = array[left]; //取第一个数为基准数，暂存下基准数
 
         while (i != j) {
-            //再从左边开始找，找比基准数大的数（找到后需把这个数移至基准数的右边）
-            while (array[i] <= pivot && i < j) {
-                i++;
-            }
-
             //先从右边开始找，找比基准数小的数（找到后需把这个数移至基准数的左边）
             while (array[j] >= pivot && i < j) {
                 j--;
+            }
+
+            //再从左边开始找，找比基准数大的数（找到后需把这个数移至基准数的右边）
+            while (array[i] <= pivot && i < j) {
+                i++;
             }
 
             //交换两个数的位置
@@ -33,20 +33,22 @@ public class QuickSort {
                 temp = array[i];
                 array[i] = array[j];
                 array[j] = temp;
+                i++;
+                j--;
             }
         }
 
-        //最后需将基准数归位
+        //若基准数大于array[i]，则将基准数与array[i]对换
         if (pivot > array[i]) {
             array[left] = array[i];
             array[i] = pivot;
         }
 
         //递归处理基准数左边的数组
-        sort(array, left, i - 1);
+        sort(array, left, i);
 
         //递归处理基准数右边的数组
-        sort(array, i, right);
+        sort(array, i + 1, right);
     }
 
     public static void main(String[] args) {
