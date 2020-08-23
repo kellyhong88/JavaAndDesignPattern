@@ -14,31 +14,33 @@ public class QuickSort {
         if (ArrayUtils.noNeedSort(array)) return;
         if (left >= right) return;
 
-        int i = left, j = right, temp1, temp2;
-        temp1 = array[left]; //取第一个数为基准数，暂存下基准数
+        int i = left, j = right, pivot, temp;
+        pivot = array[left]; //取第一个数为基准数，暂存下基准数
 
         while (i != j) {
             //再从左边开始找，找比基准数大的数（找到后需把这个数移至基准数的右边）
-            while (array[i] <= temp1 && i < j) {
+            while (array[i] <= pivot && i < j) {
                 i++;
             }
 
             //先从右边开始找，找比基准数小的数（找到后需把这个数移至基准数的左边）
-            while (array[j] >= temp1 && i < j) {
+            while (array[j] >= pivot && i < j) {
                 j--;
             }
 
             //交换两个数的位置
             if (i < j) {
-                temp2 = array[i];
+                temp = array[i];
                 array[i] = array[j];
-                array[j] = temp2;
+                array[j] = temp;
             }
         }
 
         //最后需将基准数归位
-        array[left] = array[i];
-        array[i] = temp1;
+        if (pivot > array[i]) {
+            array[left] = array[i];
+            array[i] = pivot;
+        }
 
         //递归处理基准数左边的数组
         sort(array, left, i - 1);
@@ -47,40 +49,10 @@ public class QuickSort {
         sort(array, i, right);
     }
 
-    public static void sort2(int[] array, int L, int R) {
-        if (ArrayUtils.noNeedSort(array)) return;
-        if (L >= R) return;
-
-        int i = L, j = R, mid = (L + R) / 2, temp;
-        int pivot = array[mid];
-        while (i < j && j < array.length) {
-            while (array[i] <= pivot) {
-                i++;
-                if (i >= (array.length - 1)) break;
-            }
-            while (array[j] >= pivot) {
-                j--;
-                if (j <= 0) break;
-            }
-            if (i < j) {
-                temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-                i++;
-                j--;
-            }
-        }
-        sort2(array, L, mid);
-        sort2(array, mid + 1, R);
-    }
-
     public static void main(String[] args) {
         ArrayUtils.print();
         QuickSort.sort(ArrayUtils.array, 0, ArrayUtils.array.length - 1);
         ArrayUtils.print();
-        int[] array2 = {8, 5, 6, 2, 0, 9, 3, 1, 4, 7};
-        QuickSort.sort2(array2, 0, array2.length - 1);
-        ArrayUtils.print(array2);
     }
 
 }
