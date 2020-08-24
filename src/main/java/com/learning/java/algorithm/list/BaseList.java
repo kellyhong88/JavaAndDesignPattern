@@ -42,7 +42,7 @@ public class BaseList {
         p4.next = p5;
         p5.next = p6;
         p6.next = p7;
-        p7.next = p4;
+        p7.next = p4; //形成环
         return p1;
     }
 
@@ -50,15 +50,16 @@ public class BaseList {
         print(head, null);
     }
 
-    public static void print(Node head, Node end) {
+    public static void print(Node head, Node cycleEntry) {
         Node temp = head;
-        int meetCount = 0;
+        int count = 0;
         while (temp != null) {
-            if (end != null && temp == end) meetCount++;
+            if (cycleEntry != null && temp == cycleEntry) count++;
             System.out.print(temp.data + ", ");
             temp = temp.next;
-            if (meetCount > 1) break;
+            if (count > 1) break;
         }
         System.out.println();
     }
+
 }
