@@ -23,7 +23,7 @@ public class BinaryTree {
     /**
      * 前序：根左右
      */
-    static void preOrderTraversal(Node root, List<Integer> answers) {
+    public static void preOrderTraversal(Node root, List<Integer> answers) {
         if (root == null) return;
         answers.add(root.data);
         preOrderTraversal(root.left, answers);
@@ -33,7 +33,7 @@ public class BinaryTree {
     /**
      * 中序：左根右
      */
-    static void inOrderTraversal(Node root, List<Integer> answers) {
+    public static void inOrderTraversal(Node root, List<Integer> answers) {
         if (root == null) return;
         inOrderTraversal(root.left, answers);
         answers.add(root.data);
@@ -43,17 +43,32 @@ public class BinaryTree {
     /**
      * 后序：左右根
      */
-    static void postOrderTraversal(Node root, List<Integer> answers) {
+    public static void postOrderTraversal(Node root, List<Integer> answers) {
         if (root == null) return;
         postOrderTraversal(root.left, answers);
         postOrderTraversal(root.right, answers);
         answers.add(root.data);
     }
 
-    public static void main(String[] args) {
+    public static void printPreOrder(Node root) {
         List<Integer> preAnswer = new ArrayList<>();
+        preOrderTraversal(root, preAnswer);
+        BaseList.printList(preAnswer);
+    }
+
+    public static void printInOrder(Node root) {
         List<Integer> inAnswer = new ArrayList<>();
+        inOrderTraversal(root, inAnswer);
+        BaseList.printList(inAnswer);
+    }
+
+    public static void printPostOrder(Node root) {
         List<Integer> postAnswer = new ArrayList<>();
+        postOrderTraversal(root, postAnswer);
+        BaseList.printList(postAnswer);
+    }
+
+    public static Node createBinaryTree() {
         BinaryTree tree = new BinaryTree();
         Node root = tree.new Node(1);
         Node n2 = tree.new Node(2);
@@ -66,14 +81,14 @@ public class BinaryTree {
         n2.left = n4;
         n2.right = n5;
         n3.left = n6;
+        return root;
+    }
 
-        preOrderTraversal(root, preAnswer);
-        inOrderTraversal(root, inAnswer);
-        postOrderTraversal(root, postAnswer);
-
-        BaseList.printList(preAnswer);
-        BaseList.printList(inAnswer);
-        BaseList.printList(postAnswer);
+    public static void main(String[] args) {
+        Node root = createBinaryTree();
+        printPreOrder(root);
+        printInOrder(root);
+        printPostOrder(root);
     }
 
 }
