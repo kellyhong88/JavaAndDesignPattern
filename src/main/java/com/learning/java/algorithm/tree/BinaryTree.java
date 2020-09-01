@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * 二叉树
- * */
+ */
 public class BinaryTree {
 
     class Node {
@@ -50,6 +50,19 @@ public class BinaryTree {
         answers.add(root.data);
     }
 
+    /**
+     * 按层从上往下
+     */
+    public static void levelTraversal(Node root, int level, List<List<Integer>> answers) {
+        if (root == null) return;
+        if (answers.size() == level) {
+            answers.add(new ArrayList<>());
+        }
+        answers.get(level).add(root.data);
+        levelTraversal(root.left, level + 1, answers);
+        levelTraversal(root.right, level + 1, answers);
+    }
+
     public static void printPreOrder(Node root) {
         List<Integer> preAnswer = new ArrayList<>();
         preOrderTraversal(root, preAnswer);
@@ -66,6 +79,12 @@ public class BinaryTree {
         List<Integer> postAnswer = new ArrayList<>();
         postOrderTraversal(root, postAnswer);
         BaseList.printList(postAnswer);
+    }
+
+    public static void printLevelOrder(Node root) {
+        List<List<Integer>> levelAnswer = new ArrayList<>();
+        levelTraversal(root, 0 ,levelAnswer);
+        BaseList.printList2(levelAnswer);
     }
 
     public static Node createBinaryTree() {
@@ -109,6 +128,7 @@ public class BinaryTree {
         printPreOrder(root);
         printInOrder(root);
         printPostOrder(root);
+        printLevelOrder(root);
     }
 
 }

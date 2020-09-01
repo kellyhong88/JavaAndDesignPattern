@@ -68,6 +68,12 @@ public class BaseList {
         System.out.println();
     }
 
+    public static void printList2(List<List<Integer>> list) {
+        if (CollectionUtils.isEmpty(list)) return;
+        list.forEach(list1 -> list1.forEach(item -> System.out.print(item)));
+        System.out.println();
+    }
+
     public static void print(Node head) {
         print(head, null);
     }
