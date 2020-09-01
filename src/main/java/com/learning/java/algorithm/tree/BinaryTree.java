@@ -23,67 +23,67 @@ public class BinaryTree {
     /**
      * 前序：根左右
      */
-    public static void preOrderTraversal(Node root, List<Integer> answers) {
-        if (root == null) return;
+    public static List<Integer> preOrderTraversal(Node root, List<Integer> answers) {
+        if (root == null) return answers;
         answers.add(root.data);
         preOrderTraversal(root.left, answers);
         preOrderTraversal(root.right, answers);
+        return answers;
     }
 
     /**
      * 中序：左根右
      */
-    public static void inOrderTraversal(Node root, List<Integer> answers) {
-        if (root == null) return;
+    public static List<Integer> inOrderTraversal(Node root, List<Integer> answers) {
+        if (root == null) return answers;
         inOrderTraversal(root.left, answers);
         answers.add(root.data);
         inOrderTraversal(root.right, answers);
+        return answers;
     }
 
     /**
      * 后序：左右根
      */
-    public static void postOrderTraversal(Node root, List<Integer> answers) {
-        if (root == null) return;
+    public static List<Integer> postOrderTraversal(Node root, List<Integer> answers) {
+        if (root == null) return answers;
         postOrderTraversal(root.left, answers);
         postOrderTraversal(root.right, answers);
         answers.add(root.data);
+        return answers;
     }
 
     /**
      * 按层从上往下
      */
-    public static void levelTraversal(Node root, int level, List<List<Integer>> answers) {
-        if (root == null) return;
+    public static List<List<Integer>> levelTraversal(Node root, int level, List<List<Integer>> answers) {
+        if (root == null) return answers;
         if (answers.size() == level) {
             answers.add(new ArrayList<>());
         }
         answers.get(level).add(root.data);
         levelTraversal(root.left, level + 1, answers);
         levelTraversal(root.right, level + 1, answers);
+        return answers;
     }
 
     public static void printPreOrder(Node root) {
-        List<Integer> preAnswer = new ArrayList<>();
-        preOrderTraversal(root, preAnswer);
+        List<Integer> preAnswer = preOrderTraversal(root, new ArrayList<>());
         BaseList.printList(preAnswer);
     }
 
     public static void printInOrder(Node root) {
-        List<Integer> inAnswer = new ArrayList<>();
-        inOrderTraversal(root, inAnswer);
+        List<Integer> inAnswer = inOrderTraversal(root, new ArrayList<>());
         BaseList.printList(inAnswer);
     }
 
     public static void printPostOrder(Node root) {
-        List<Integer> postAnswer = new ArrayList<>();
-        postOrderTraversal(root, postAnswer);
+        List<Integer> postAnswer = postOrderTraversal(root, new ArrayList<>());
         BaseList.printList(postAnswer);
     }
 
     public static void printLevelOrder(Node root) {
-        List<List<Integer>> levelAnswer = new ArrayList<>();
-        levelTraversal(root, 0 ,levelAnswer);
+        List<List<Integer>> levelAnswer = levelTraversal(root, 0 ,new ArrayList<>());
         BaseList.printList2(levelAnswer);
     }
 
