@@ -17,9 +17,9 @@ public class InsertionSort {
     }
 
     public static void main(String[] args) {
-        ArrayUtils.print();
+        ArrayUtils.print(ArrayUtils.array);
         InsertionSort.sort(ArrayUtils.array);
-        ArrayUtils.print();
+        ArrayUtils.print(ArrayUtils.array);
     }
 
 }

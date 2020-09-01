@@ -54,9 +54,9 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        ArrayUtils.print();
+        ArrayUtils.print(ArrayUtils.array);
         BubbleSort.sort(ArrayUtils.array);
-        ArrayUtils.print();
+        ArrayUtils.print(ArrayUtils.array);
         int[] array2 = {8, 5, 6, 2, 0, 9, 3, 1, 4, 7};
         BubbleSort.sortRecursively(array2, 0, array2.length - 1);
         ArrayUtils.print(array2);

@@ -22,9 +22,9 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
-        ArrayUtils.print();
+        ArrayUtils.print(ArrayUtils.array);
         SelectionSort.sort(ArrayUtils.array);
-        ArrayUtils.print();
+        ArrayUtils.print(ArrayUtils.array);
     }
 
 }
