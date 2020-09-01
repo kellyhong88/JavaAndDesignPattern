@@ -83,7 +83,7 @@ public class BinaryTree {
     }
 
     public static void printLevelOrder(Node root) {
-        List<List<Integer>> levelAnswer = levelTraversal(root, 0 ,new ArrayList<>());
+        List<List<Integer>> levelAnswer = levelTraversal(root, 0, new ArrayList<>());
         BaseList.printList2(levelAnswer);
     }
 
