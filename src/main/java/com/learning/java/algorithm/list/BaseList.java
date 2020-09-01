@@ -19,7 +19,19 @@ public class BaseList {
         BaseList baseList = new BaseList();
         Node head, temp;
         head = temp = baseList.new Node(0);
-        for (int i = 1; i < 10; i++) {
+        for (int i = 1; i < 10; i = i + 2) {
+            Node node = baseList.new Node(i);
+            temp.next = node;
+            temp = node;
+        }
+        return head;
+    }
+
+    public static Node createSortedList2() {
+        BaseList baseList = new BaseList();
+        Node head, temp;
+        head = temp = baseList.new Node(0);
+        for (int i = 2; i < 10; i = i + 2) {
             Node node = baseList.new Node(i);
             temp.next = node;
             temp = node;
