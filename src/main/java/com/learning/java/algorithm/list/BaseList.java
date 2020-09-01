@@ -1,5 +1,9 @@
 package com.learning.java.algorithm.list;
 
+import org.springframework.util.CollectionUtils;
+
+import java.util.List;
+
 public class BaseList {
 
     class Node {
@@ -56,6 +60,12 @@ public class BaseList {
         p6.next = p7;
         p7.next = p4; //形成环
         return p1;
+    }
+
+    public static void printList(List<Integer> list) {
+        if (CollectionUtils.isEmpty(list)) return;
+        list.forEach(item -> System.out.print(item));
+        System.out.println();
     }
 
     public static void print(Node head) {
