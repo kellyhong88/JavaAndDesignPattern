@@ -11,7 +11,7 @@ package com.learning.java.algorithm.sort;
 public class QuickSort {
 
     static void sort(int[] array, int left, int right) {
-        if (ArrayUtils.noNeedSort(array)) return;
+        if (ArrayUtils.noNeedOperation(array)) return;
         if (left >= right) return;
 
         int i = left, j = right, pivot, temp;

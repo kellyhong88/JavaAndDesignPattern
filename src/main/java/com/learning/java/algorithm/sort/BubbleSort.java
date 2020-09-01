@@ -19,7 +19,7 @@ public class BubbleSort {
      * Bubble Sort is memory efficient and easy to implement.
      */
     static void sort(int[] array) {
-        if (ArrayUtils.noNeedSort(array)) return;
+        if (ArrayUtils.noNeedOperation(array)) return;
 
         int temp;
         boolean isChange = false;
@@ -38,7 +38,7 @@ public class BubbleSort {
     }
 
     static void sortRecursively(int[] array, int L, int R) {
-        if (ArrayUtils.noNeedSort(array)) return;
+        if (ArrayUtils.noNeedOperation(array)) return;
         if (L == R) return;
 
         int temp;

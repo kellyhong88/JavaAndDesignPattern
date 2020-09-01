@@ -3,7 +3,7 @@ package com.learning.java.algorithm.sort;
 public class InsertionSort {
 
     public static void sort(int[] array) {
-        if (ArrayUtils.noNeedSort(array)) return;
+        if (ArrayUtils.noNeedOperation(array)) return;
 
         int temp;
         for (int i = 1; i < array.length; i++) {

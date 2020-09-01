@@ -3,7 +3,7 @@ package com.learning.java.algorithm.sort;
 public class SelectionSort {
 
     public static void sort(int[] array) {
-        if (ArrayUtils.noNeedSort(array)) return;
+        if (ArrayUtils.noNeedOperation(array)) return;
 
         int maxIdx;
         int temp;

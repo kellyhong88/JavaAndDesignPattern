@@ -1,4 +1,4 @@
-package com.learning.java.algorithm.string;
+package com.learning.java.algorithm.array;
 
 public class StringReverse {
 
