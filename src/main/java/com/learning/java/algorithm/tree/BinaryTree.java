@@ -76,11 +76,31 @@ public class BinaryTree {
         Node n4 = tree.new Node(4);
         Node n5 = tree.new Node(5);
         Node n6 = tree.new Node(6);
+        Node n7 = tree.new Node(7);
         root.left = n2;
         root.right = n3;
         n2.left = n4;
         n2.right = n5;
         n3.left = n6;
+        n3.right = n7;
+        return root;
+    }
+
+    public static Node createBinarySearchTree() {
+        BinaryTree tree = new BinaryTree();
+        Node root = tree.new Node(4);
+        Node n1 = tree.new Node(1);
+        Node n2 = tree.new Node(2);
+        Node n3 = tree.new Node(3);
+        Node n5 = tree.new Node(5);
+        Node n6 = tree.new Node(6);
+        Node n7 = tree.new Node(7);
+        root.left = n2;
+        root.right = n6;
+        n2.left = n1;
+        n2.right = n3;
+        n6.left = n5;
+        n6.right = n7;
         return root;
     }
 
