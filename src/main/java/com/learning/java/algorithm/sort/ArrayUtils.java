@@ -5,6 +5,8 @@ public class ArrayUtils {
     public static int[] array = {8, 5, 6, 2, 0, 9, 3, 1, 4, 7};
     public static int[] array2 = {8, 8, 6, 6, 6, 9, 3, 1, 4, 4};
     public static int[] array3 = {2, 0, 1, 1, 0, 2, 1, 1, 0, 2};
+    public static int[] array4 = {4, 5, 6, 7, 8, 9, 0, 1, 2, 3};
+    public static int[] array5 = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
     public static void print(int[] array) {
         if (emptyArray(array)) return;
