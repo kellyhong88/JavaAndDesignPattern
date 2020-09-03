@@ -16,18 +16,22 @@ public class ArrayRotate {
             }
             if (array[left] < array[mid]) {
                 left = mid;
-            } else {
+            } else if (array[left] > array[mid]){
                 right = mid;
+            } else {
+                left++;
             }
         }
         return array[left];
     }
 
     public static void main(String[] args) {
-        ArrayUtils.print(ArrayUtils.array5);
-        System.out.println("Min of this array: " + findMin(ArrayUtils.array5));
         ArrayUtils.print(ArrayUtils.array4);
         System.out.println("Min of this array: " + findMin(ArrayUtils.array4));
+        ArrayUtils.print(ArrayUtils.array5);
+        System.out.println("Min of this array: " + findMin(ArrayUtils.array5));
+        ArrayUtils.print(ArrayUtils.array6);
+        System.out.println("Min of this array: " + findMin(ArrayUtils.array6));
     }
 
 }
