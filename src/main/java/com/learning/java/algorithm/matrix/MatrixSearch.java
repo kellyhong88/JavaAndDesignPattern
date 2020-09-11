@@ -33,8 +33,9 @@ public class MatrixSearch {
 
         int row = 0, column = matrix[0].length - 1;
         while (row < matrix.length && column >= 0) {
-            if (matrix[row][column] == target) return true;
-            else if (matrix[row][column] < target) {
+            if (matrix[row][column] == target) {
+                return true;
+            } else if (matrix[row][column] < target) {
                 row++;
             } else {
                 column--;
