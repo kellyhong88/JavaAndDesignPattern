@@ -2,7 +2,7 @@ package com.learning.java.algorithm.array;
 
 import com.learning.java.algorithm.sort.ArrayUtils;
 
-public class MaxSubArraySum {
+public class MaxSubSum {
 
     public static int calculateMaxSum(int[] array, int left, int right) {
         if (ArrayUtils.emptyArray(array)) return Integer.MIN_VALUE;
