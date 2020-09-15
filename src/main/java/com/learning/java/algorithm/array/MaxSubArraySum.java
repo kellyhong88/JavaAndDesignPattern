@@ -34,9 +34,22 @@ public class MaxSubArraySum {
         return maxSum;
     }
 
+    public static int calculateMaxSum(int[] array) {
+        if (ArrayUtils.emptyArray(array)) return Integer.MIN_VALUE;
+        if (array.length == 1) return array[0];
+
+        int lastMaxSum = array[0], maxSum = array[0];
+        for (int i = 1; i < array.length; i++) {
+            lastMaxSum = Math.max(array[i], lastMaxSum + array[i]);
+            maxSum = Math.max(maxSum, lastMaxSum);
+        }
+        return maxSum;
+    }
+
     public static void main(String[] args) {
         ArrayUtils.print(ArrayUtils.array8);
         System.out.println("Max sum of subArray: " + calculateMaxSum(ArrayUtils.array8, 0, ArrayUtils.array8.length - 1));
+        System.out.println("Max sum of subArray: " + calculateMaxSum(ArrayUtils.array8));
     }
 
 }
