@@ -9,6 +9,7 @@ public class ArrayUtils {
     public static int[] array5 = {4, 5, 6, 7, 8, 9, 0, 1, 2, 3};
     public static int[] array6 = {4, 4, 5, 6, 7, 0, 0, 1, 1, 3};
     public static int[] array7 = {7, 1, 5, 3, 6, 4};
+    public static int[] array8 = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
 
     public static void print(int[] array) {
         if (emptyArray(array)) return;
