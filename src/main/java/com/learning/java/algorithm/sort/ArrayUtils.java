@@ -10,6 +10,8 @@ public class ArrayUtils {
     public static int[] array6 = {4, 4, 5, 6, 7, 0, 0, 1, 1, 3};
     public static int[] array7 = {7, 1, 5, 3, 6, 4};
     public static int[] array8 = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+    public static int[] array9 = {10, 9, 2, 5, 3, 7, 101, 18};
+    public static int[] array10 = {0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15};
 
     public static void print(int[] array) {
         if (emptyArray(array)) return;
@@ -21,7 +23,7 @@ public class ArrayUtils {
 
     public static void swap(int[] array, int i, int j) {
         if (noNeedOperation(array)) return;
-        if (i < 0 || i >= array.length || j < 0 || j>= array.length) return;
+        if (i < 0 || i >= array.length || j < 0 || j >= array.length) return;
         int temp = array[i];
         array[i] = array[j];
         array[j] = temp;
