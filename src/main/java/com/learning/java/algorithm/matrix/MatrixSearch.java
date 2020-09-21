@@ -1,18 +1,13 @@
 package com.learning.java.algorithm.matrix;
 
-public class MatrixSearch {
+import static com.learning.java.algorithm.matrix.MatrixUtils.*;
 
-    public static int[][] MatrixA = {{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 50}};
-    public static int[][] MatrixB = {
-            {1, 4, 7, 11, 15},
-            {2, 5, 8, 12, 19},
-            {3, 6, 9, 16, 22}
-    };
+public class MatrixSearch {
 
     public static boolean existedInMatrixA(int[][] matrix, int target) {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return false;
 
-        int m = matrix.length, n = matrix[0].length;
+        int m = getRowLength(matrix), n = getColumnLength(matrix);
         int left = 0, right = m * n - 1;
         int pivotIdx, pivot;
         while (left <= right) {
@@ -31,7 +26,7 @@ public class MatrixSearch {
     public static boolean existedInMatrixA2(int[][] matrix, int target) {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return false;
 
-        int row = 0, column = matrix[0].length - 1;
+        int row = 0, column = getColumnLength(matrix) - 1;
         while (row < matrix.length && column >= 0) {
             if (matrix[row][column] == target) {
                 return true;
@@ -47,7 +42,7 @@ public class MatrixSearch {
     public static boolean existedInMatrixB(int[][] matrix, int target) {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return false;
 
-        int row = matrix.length - 1, column = 0;
+        int row = getRowLength(matrix) - 1, column = 0;
         while (row >= 0 && column < matrix[0].length) {
             if (matrix[row][column] < target) {
                 column++;
