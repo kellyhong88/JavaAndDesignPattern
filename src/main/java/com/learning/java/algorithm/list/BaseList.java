@@ -64,7 +64,10 @@ public class BaseList {
 
     public static void printList(List<Integer> list) {
         if (CollectionUtils.isEmpty(list)) return;
-        list.forEach(item -> System.out.print(item));
+        list.forEach(item -> {
+            System.out.print(item);
+            System.out.print(", ");
+        });
         System.out.println();
     }
 
