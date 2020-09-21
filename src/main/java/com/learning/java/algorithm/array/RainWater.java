@@ -27,8 +27,36 @@ public class RainWater {
         return rainWater;
     }
 
+    public static int calculateRainWater2(int[] array) {
+        if (emptyArray(array) || array.length == 1) return 0;
+
+        int left = 0, right = array.length - 1,
+                leftMax = 0, rightMax = 0,
+                rainWater = 0;
+        while (left < right) {
+            if (array[left] < array[right]) {
+                if (array[left] > leftMax) {
+                    leftMax = array[left];
+                } else {
+                    rainWater += (leftMax - array[left]);
+                }
+                left++;
+            } else {
+                if (array[right] > rightMax) {
+                    rightMax = array[right];
+                } else {
+                    rainWater += (rightMax - array[right]);
+                }
+                right--;
+            }
+        }
+
+        return rainWater;
+    }
+
     public static void main(String[] args) {
         System.out.println("Volume of rain water: " + calculateRainWater(Array11));
+        System.out.println("Volume of rain water: " + calculateRainWater2(Array11));
     }
 
 }
