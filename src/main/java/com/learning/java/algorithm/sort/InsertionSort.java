@@ -1,9 +1,11 @@
 package com.learning.java.algorithm.sort;
 
+import static com.learning.java.algorithm.sort.ArrayUtils.*;
+
 public class InsertionSort {
 
     public static void sort(int[] array) {
-        if (ArrayUtils.noNeedOperation(array)) return;
+        if (noNeedOperation(array)) return;
 
         int temp;
         for (int i = 1; i < array.length; i++) {
@@ -17,9 +19,9 @@ public class InsertionSort {
     }
 
     public static void main(String[] args) {
-        ArrayUtils.print(ArrayUtils.array);
-        InsertionSort.sort(ArrayUtils.array);
-        ArrayUtils.print(ArrayUtils.array);
+        print(Array1);
+        sort(Array1);
+        print(Array1);
     }
 
 }

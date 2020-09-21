@@ -1,9 +1,11 @@
 package com.learning.java.algorithm.sort;
 
+import static com.learning.java.algorithm.sort.ArrayUtils.*;
+
 public class SelectionSort {
 
     public static void sort(int[] array) {
-        if (ArrayUtils.noNeedOperation(array)) return;
+        if (noNeedOperation(array)) return;
 
         int maxIdx;
         int temp;
@@ -22,9 +24,9 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
-        ArrayUtils.print(ArrayUtils.array);
-        SelectionSort.sort(ArrayUtils.array);
-        ArrayUtils.print(ArrayUtils.array);
+        print(Array1);
+        sort(Array1);
+        print(Array1);
     }
 
 }

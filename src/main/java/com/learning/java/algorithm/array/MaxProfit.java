@@ -1,11 +1,11 @@
 package com.learning.java.algorithm.array;
 
-import com.learning.java.algorithm.sort.ArrayUtils;
+import static com.learning.java.algorithm.sort.ArrayUtils.*;
 
 public class MaxProfit {
 
     public static int calculateMaxProfit(int[] array) {
-        if (ArrayUtils.noNeedOperation(array)) return 0;
+        if (noNeedOperation(array)) return 0;
 
         int minIdx = 0, maxProfit = 0;
         for (int i = 1; i < array.length; i++) {
@@ -20,8 +20,8 @@ public class MaxProfit {
     }
 
     public static void main(String[] args) {
-        ArrayUtils.print(ArrayUtils.array7);
-        System.out.println("MaxProfit: " + calculateMaxProfit(ArrayUtils.array7));
+        print(Array7);
+        System.out.println("MaxProfit: " + calculateMaxProfit(Array7));
     }
 
 }

@@ -2,16 +2,17 @@ package com.learning.java.algorithm.sort;
 
 public class ArrayUtils {
 
-    public static int[] array = {8, 5, 6, 2, 0, 9, 3, 1, 4, 7};
-    public static int[] array2 = {8, 8, 6, 6, 6, 9, 3, 1, 4, 4};
-    public static int[] array3 = {2, 0, 1, 1, 0, 2, 1, 1, 0, 2};
-    public static int[] array4 = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-    public static int[] array5 = {4, 5, 6, 7, 8, 9, 0, 1, 2, 3};
-    public static int[] array6 = {4, 4, 5, 6, 7, 0, 0, 1, 1, 3};
-    public static int[] array7 = {7, 1, 5, 3, 6, 4};
-    public static int[] array8 = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-    public static int[] array9 = {10, 9, 2, 5, 3, 7, 101, 18};
-    public static int[] array10 = {0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15};
+    public static int[] Array1 = {8, 5, 6, 2, 0, 9, 3, 1, 4, 7};
+    public static int[] Array2 = {8, 8, 6, 6, 6, 9, 3, 1, 4, 4};
+    public static int[] Array3 = {2, 0, 1, 1, 0, 2, 1, 1, 0, 2};
+    public static int[] Array4 = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    public static int[] Array5 = {4, 5, 6, 7, 8, 9, 0, 1, 2, 3};
+    public static int[] Array6 = {4, 4, 5, 6, 7, 0, 0, 1, 1, 3};
+    public static int[] Array7 = {7, 1, 5, 3, 6, 4};
+    public static int[] Array8 = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+    public static int[] Array9 = {10, 9, 2, 5, 3, 7, 101, 18};
+    public static int[] Array10 = {0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15};
+    public static int[] Array11 = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
 
     public static void print(int[] array) {
         if (emptyArray(array)) return;

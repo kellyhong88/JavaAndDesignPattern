@@ -1,11 +1,11 @@
 package com.learning.java.algorithm.array;
 
-import com.learning.java.algorithm.sort.ArrayUtils;
+import static com.learning.java.algorithm.sort.ArrayUtils.*;
 
 public class MaxSubSum {
 
     public static int calculateMaxSum(int[] array, int left, int right) {
-        if (ArrayUtils.emptyArray(array)) return Integer.MIN_VALUE;
+        if (emptyArray(array)) return Integer.MIN_VALUE;
         if (left == right) return array[left];
 
         int mid = (left + right) / 2;
@@ -17,7 +17,7 @@ public class MaxSubSum {
     }
 
     private static int calculateCrossMaxSum(int[] array, int left, int right, int cross) {
-        if (ArrayUtils.emptyArray(array)) return Integer.MIN_VALUE;
+        if (emptyArray(array)) return Integer.MIN_VALUE;
         if (left == right) return array[left];
 
         int i = cross - 1, maxSum = array[cross], currentSum = array[cross];
@@ -35,7 +35,7 @@ public class MaxSubSum {
     }
 
     public static int calculateMaxSum(int[] array) {
-        if (ArrayUtils.emptyArray(array)) return Integer.MIN_VALUE;
+        if (emptyArray(array)) return Integer.MIN_VALUE;
         if (array.length == 1) return array[0];
 
         int lastMaxSum = array[0], maxSum = array[0];
@@ -47,9 +47,9 @@ public class MaxSubSum {
     }
 
     public static void main(String[] args) {
-        ArrayUtils.print(ArrayUtils.array8);
-        System.out.println("Max sum of subArray: " + calculateMaxSum(ArrayUtils.array8, 0, ArrayUtils.array8.length - 1));
-        System.out.println("Max sum of subArray: " + calculateMaxSum(ArrayUtils.array8));
+        print(Array8);
+        System.out.println("Max sum of subArray: " + calculateMaxSum(Array8, 0, Array8.length - 1));
+        System.out.println("Max sum of subArray: " + calculateMaxSum(Array8));
     }
 
 }

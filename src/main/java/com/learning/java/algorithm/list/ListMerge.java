@@ -26,9 +26,9 @@ public class ListMerge extends BaseList {
     }
 
     public static void main(String[] args) {
-        Node h1 = BaseList.createSortedList();
+        Node h1 = createSortedList();
         print(h1);
-        Node h2 = BaseList.createSortedList2();
+        Node h2 = createSortedList2();
         print(h2);
 
         print(merge(h1, h2));

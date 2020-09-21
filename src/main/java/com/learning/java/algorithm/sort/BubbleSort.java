@@ -1,11 +1,13 @@
 package com.learning.java.algorithm.sort;
 
+import static com.learning.java.algorithm.sort.ArrayUtils.*;
+
 /**
  * In Bubble Sort, each element is compared with the next element.
  * If the front element is bigger than the back element, then the positions of the elements will be interchanged,
  * otherwise it will not be changed.
  * Then the front/smaller element is compared with its pre element,
- * and the same process will be repeated for all the elements in the array until we get a sorted array.
+ * and the same process will be repeated for all the elements in the Array1 until we get a sorted Array1.
  * Bubble Sort is sometimes also referred as Sinking Sort as instead of bubbling up the smallest element to the left side,
  * we can also sink the largest element to the right side.
  */
@@ -19,7 +21,7 @@ public class BubbleSort {
      * Bubble Sort is memory efficient and easy to implement.
      */
     static void sort(int[] array) {
-        if (ArrayUtils.noNeedOperation(array)) return;
+        if (noNeedOperation(array)) return;
 
         int temp;
         boolean isChange = false;
@@ -38,7 +40,7 @@ public class BubbleSort {
     }
 
     static void sortRecursively(int[] array, int L, int R) {
-        if (ArrayUtils.noNeedOperation(array)) return;
+        if (noNeedOperation(array)) return;
         if (L == R) return;
 
         int temp;
@@ -54,12 +56,12 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        ArrayUtils.print(ArrayUtils.array);
-        BubbleSort.sort(ArrayUtils.array);
-        ArrayUtils.print(ArrayUtils.array);
+        print(Array1);
+        sort(Array1);
+        print(Array1);
         int[] array2 = {8, 5, 6, 2, 0, 9, 3, 1, 4, 7};
-        BubbleSort.sortRecursively(array2, 0, array2.length - 1);
-        ArrayUtils.print(array2);
+        sortRecursively(array2, 0, array2.length - 1);
+        print(array2);
     }
 
 }

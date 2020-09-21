@@ -26,7 +26,7 @@ public class ListReverse extends BaseList {
     }
 
     public static void main(String[] args) {
-        Node head = BaseList.createSortedList();
+        Node head = createSortedList();
         print(head);
 
         head = reverse(head); //将单向链表逆序

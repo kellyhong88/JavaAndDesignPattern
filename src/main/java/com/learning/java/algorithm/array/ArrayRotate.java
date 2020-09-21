@@ -1,6 +1,6 @@
 package com.learning.java.algorithm.array;
 
-import com.learning.java.algorithm.sort.ArrayUtils;
+import static com.learning.java.algorithm.sort.ArrayUtils.*;
 
 public class ArrayRotate {
 
@@ -60,15 +60,15 @@ public class ArrayRotate {
     }
 
     public static void main(String[] args) {
-        ArrayUtils.print(ArrayUtils.array4);
-        System.out.println("Min of this array: " + ArrayUtils.array4[findRotateIndex(ArrayUtils.array4)]);
-        ArrayUtils.print(ArrayUtils.array5);
-        System.out.println("Min of this array: " + ArrayUtils.array5[findRotateIndex(ArrayUtils.array5)]);
-        System.out.println("Index of target 7: " + searchTargetIndex(ArrayUtils.array5, 7));
-        System.out.println("Index of target 9: " + searchTargetIndex(ArrayUtils.array5, 9));
-        System.out.println("Index of target 2: " + searchTargetIndex(ArrayUtils.array5, 2));
-        ArrayUtils.print(ArrayUtils.array6);
-        System.out.println("Min of this array: " + ArrayUtils.array6[findRotateIndex(ArrayUtils.array6)]);
+        print(Array4);
+        System.out.println("Min of this Array1: " + Array4[findRotateIndex(Array4)]);
+        print(Array5);
+        System.out.println("Min of this Array1: " + Array5[findRotateIndex(Array5)]);
+        System.out.println("Index of target 7: " + searchTargetIndex(Array5, 7));
+        System.out.println("Index of target 9: " + searchTargetIndex(Array5, 9));
+        System.out.println("Index of target 2: " + searchTargetIndex(Array5, 2));
+        print(Array6);
+        System.out.println("Min of this Array1: " + Array6[findRotateIndex(Array6)]);
     }
 
 }

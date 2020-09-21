@@ -1,5 +1,7 @@
 package com.learning.java.algorithm.sort;
 
+import static com.learning.java.algorithm.sort.ArrayUtils.*;
+
 /**
  * 快速排序在每次排序时，会设置一个基准点（一般取第一个数），将小于基准点的数全部放到基准点的左边，将大于基准点的数全部放到基准点的右边。
  * 这样在每次交换的时候，就不会像冒泡排序一样只能在相邻的数之间进行交换，即快排每次交换的距离比冒泡大多了。
@@ -11,7 +13,7 @@ package com.learning.java.algorithm.sort;
 public class QuickSort {
 
     static void sort(int[] array, int left, int right) {
-        if (ArrayUtils.noNeedOperation(array)) return;
+        if (noNeedOperation(array)) return;
         if (left >= right) return;
 
         int i = left, j = right, pivot, temp;
@@ -52,9 +54,9 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        ArrayUtils.print(ArrayUtils.array);
-        QuickSort.sort(ArrayUtils.array, 0, ArrayUtils.array.length - 1);
-        ArrayUtils.print(ArrayUtils.array);
+        print(Array1);
+        sort(Array1, 0, Array1.length - 1);
+        print(Array1);
     }
 
 }

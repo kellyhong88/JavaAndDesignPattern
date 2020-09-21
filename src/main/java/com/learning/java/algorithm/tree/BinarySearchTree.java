@@ -10,9 +10,9 @@ public class BinarySearchTree extends BinaryTree {
     }
 
     public static void main(String[] args) {
-        Node root = BinaryTree.createBinarySearchTree();
+        Node root = createBinarySearchTree();
         System.out.println(isValidBinarySearchTree(root, null, null));
-        BinaryTree.printInOrder(root);
+        printInOrder(root);
     }
 
 }

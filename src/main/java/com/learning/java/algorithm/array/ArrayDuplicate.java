@@ -1,11 +1,11 @@
 package com.learning.java.algorithm.array;
 
-import com.learning.java.algorithm.sort.ArrayUtils;
+import static com.learning.java.algorithm.sort.ArrayUtils.*;
 
 public class ArrayDuplicate {
 
     public static int[] removeDuplicates(int[] array) {
-        if (ArrayUtils.noNeedOperation(array)) return array;
+        if (noNeedOperation(array)) return array;
 
         int i = 0;
         for (int j = 1; j < array.length; j++) {
@@ -29,9 +29,9 @@ public class ArrayDuplicate {
     }
 
     public static void main(String[] args) {
-        int[] array = ArrayUtils.array2;
-        ArrayUtils.print(array);
-        ArrayUtils.print(removeDuplicates(array));
+        int[] array = Array2;
+        print(array);
+        print(removeDuplicates(array));
     }
 
 }

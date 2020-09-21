@@ -1,11 +1,11 @@
 package com.learning.java.algorithm.array;
 
-import com.learning.java.algorithm.sort.ArrayUtils;
+import static com.learning.java.algorithm.sort.ArrayUtils.*;
 
 public class ThreeColors {
 
     public static void sortColors(int[] array) {
-        if (ArrayUtils.noNeedOperation(array)) return;
+        if (noNeedOperation(array)) return;
 
         int p0, p, p2;
         p0 = p = 0;
@@ -13,9 +13,9 @@ public class ThreeColors {
 
         while (p < p2) {
             if (array[p] == 0) {
-                ArrayUtils.swap(array, p0++, p++);
+                swap(array, p0++, p++);
             } else if (array[p] == 2) {
-                ArrayUtils.swap(array, p, p2--);
+                swap(array, p, p2--);
             } else {
                 p++;
             }
@@ -23,9 +23,9 @@ public class ThreeColors {
     }
 
     public static void main(String[] args) {
-        ArrayUtils.print(ArrayUtils.array3);
-        sortColors(ArrayUtils.array3);
-        ArrayUtils.print(ArrayUtils.array3);
+        print(Array3);
+        sortColors(Array3);
+        print(Array3);
     }
 
 }

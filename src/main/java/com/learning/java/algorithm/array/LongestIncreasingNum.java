@@ -1,11 +1,11 @@
 package com.learning.java.algorithm.array;
 
-import com.learning.java.algorithm.sort.ArrayUtils;
+import static com.learning.java.algorithm.sort.ArrayUtils.*;
 
 public class LongestIncreasingNum {
 
     public static int findLongestIncreasingNum(int[] array) {
-        if (ArrayUtils.emptyArray(array)) return 0;
+        if (emptyArray(array)) return 0;
 
         int[] dp = new int[array.length];
         dp[0] = 1;
@@ -23,10 +23,10 @@ public class LongestIncreasingNum {
     }
 
     public static void main(String[] args) {
-        ArrayUtils.print(ArrayUtils.array9);
-        System.out.println("Longest increasing number of fingers: " + findLongestIncreasingNum(ArrayUtils.array9));
-        ArrayUtils.print(ArrayUtils.array10);
-        System.out.println("Longest increasing number of fingers: " + findLongestIncreasingNum(ArrayUtils.array10));
+        print(Array9);
+        System.out.println("Longest increasing number of fingers: " + findLongestIncreasingNum(Array9));
+        print(Array10);
+        System.out.println("Longest increasing number of fingers: " + findLongestIncreasingNum(Array10));
     }
 
 }

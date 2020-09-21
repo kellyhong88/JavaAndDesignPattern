@@ -38,10 +38,10 @@ public class ListCycle extends BaseList {
     }
 
     public static void main(String[] args) {
-        Node head1 = BaseList.createSortedList();
+        Node head1 = createSortedList();
         print(head1);
         System.out.println("whether this link is a cycled list: " + isCycle(head1));
-        Node head2 = BaseList.createCycledList();
+        Node head2 = createCycledList();
         print(head2, cycleEntry(head2));
         System.out.println("whether this link is a cycled list: " + isCycle(head2));
     }
