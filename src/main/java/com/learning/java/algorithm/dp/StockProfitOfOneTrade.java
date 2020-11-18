@@ -32,11 +32,11 @@ import static com.learning.java.algorithm.sort.ArrayUtils.*;
 public class StockProfitOfOneTrade {
 
     /**
-     * 交易次数不超过1次（K=1）
+     * 交易次数为1次（K=1）
      *
      * 状态转移方程
      * dp[i][0] = max(dp[i-1][0], dp[i-1][1] + price[i])
-     * dp[i][1] = max(dp[i-1][1], dp[i-1][0] - price[i])
+     * dp[i][1] = max(dp[i-1][1], dp[i-1][0] - price[i]) = max(dp[i-1][1], - price[i])
      *
      * base case
      * dp[-1][0] = 0
@@ -57,7 +57,7 @@ public class StockProfitOfOneTrade {
         //状态转移方程
         for (int i = 1; i < N; i++) {
             profits[i][0] = Math.max(profits[i - 1][0], profits[i - 1][1] + prices[i]);
-            profits[i][1] = Math.max(profits[i - 1][1], profits[i - 1][0] - prices[i]);
+            profits[i][1] = Math.max(profits[i - 1][1], - prices[i]);
         }
 
         return profits[N - 1][0];
@@ -73,7 +73,7 @@ public class StockProfitOfOneTrade {
         //状态转移方程
         for (int i = 1; i < N; i++) {
             profits_0 = Math.max(profits_0, profits_1 + prices[i]);
-            profits_1 = Math.max(profits_1, profits_0 - prices[i]);
+            profits_1 = Math.max(profits_1, - prices[i]);
         }
 
         return profits_0;
@@ -82,12 +82,12 @@ public class StockProfitOfOneTrade {
     public static void main(String[] args) {
         System.out.print("Prices of " + Array7.length + " days: ");
         print(Array7);
-        System.out.println("You can only trade once at most");
+        System.out.println("You can only trade once");
         System.out.println("Maximum profit: " + calculateMaxProfit(Array7));
         System.out.println("--------------------------");
         System.out.print("Prices of " + Array1.length + " days: ");
         print(Array1);
-        System.out.println("You can only trade once at most");
+        System.out.println("You can only trade once");
         System.out.println("Maximum profit: " + calculateMaxProfit2(Array1));
     }
 
