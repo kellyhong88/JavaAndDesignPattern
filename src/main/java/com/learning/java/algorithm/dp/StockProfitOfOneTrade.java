@@ -63,6 +63,22 @@ public class StockProfitOfOneTrade {
         return profits[N - 1][0];
     }
 
+    public static int calculateMaxProfit2(int[] prices) {
+        if (prices == null || prices.length == 0) return 0;
+
+        int N = prices.length;
+        // base case
+        int profits_0 = 0, profits_1 = -prices[0];
+
+        //状态转移方程
+        for (int i = 1; i < N; i++) {
+            profits_0 = Math.max(profits_0, profits_1 + prices[i]);
+            profits_1 = Math.max(profits_1, profits_0 - prices[i]);
+        }
+
+        return profits_0;
+    }
+
     public static void main(String[] args) {
         System.out.print("Prices of " + Array7.length + " days: ");
         print(Array7);
@@ -72,7 +88,7 @@ public class StockProfitOfOneTrade {
         System.out.print("Prices of " + Array1.length + " days: ");
         print(Array1);
         System.out.println("You can only trade once at most");
-        System.out.println("Maximum profit: " + calculateMaxProfit(Array1));
+        System.out.println("Maximum profit: " + calculateMaxProfit2(Array1));
     }
 
 }
