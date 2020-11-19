@@ -7,14 +7,14 @@ import static com.learning.java.algorithm.sort.ArrayUtils.*;
  * If the front element is bigger than the back element, then the positions of the elements will be interchanged,
  * otherwise it will not be changed.
  * Then the front/smaller element is compared with its pre element,
- * and the same process will be repeated for all the elements in the Array1 until we get a sorted Array1.
+ * and the same process will be repeated for all the elements in the Array until we get a sorted Array.
  * Bubble Sort is sometimes also referred as Sinking Sort as instead of bubbling up the smallest element to the left side,
  * we can also sink the largest element to the right side.
  */
 public class BubbleSort {
 
     /**
-     * Time complexity is O(N^2) because timeTotal = timePerComparison * (N-1 + N-2 + ... + 2 + 1) = N(N-1)/2
+     * Time complexity is O(N^2) because timeTotal = timePerComparison * (N-1 + N-2 + ... + 2 + 1) = (N-1)(N-2)/2
      * Space complexity is O(1) as all operations are almost in space and only ONE single variable is used in loop for holding value temporarily.
      * Bubble Sort is efficient when data set is small,
      * but it is not efficient for large data set as time grows exponentially.
@@ -52,7 +52,6 @@ public class BubbleSort {
             }
         }
         sortRecursively(array, L, R - 1);
-
     }
 
     public static void main(String[] args) {
