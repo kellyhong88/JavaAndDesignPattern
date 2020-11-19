@@ -27,15 +27,21 @@ public class StockProfitOfThreeTrades {
         int N = prices.length;
         int profits[][][] = new int[N][4][2];
 
-        for (int i = 0; i < N; i++) {
+        //base case
+        profits[0][0][0] = 0;
+        profits[0][0][1] = Integer.MIN_VALUE;
+        profits[0][1][0] = 0;
+        profits[0][1][1] = -prices[0];
+        profits[0][2][0] = 0;
+        profits[0][2][1] = -prices[0];
+        profits[0][3][0] = 0;
+        profits[0][3][1] = -prices[0];
+
+        //状态转移方程
+        for (int i = 1; i < N; i++) {
             for (int k = 1; k <= 3; k++) {
-                if (i == 0) {
-                    profits[0][k][0] = 0;
-                    profits[0][k][1] = 0 - prices[0];
-                } else {
-                    profits[i][k][0] = Math.max(profits[i - 1][k][0], profits[i - 1][k][1] + prices[i]);
-                    profits[i][k][1] = Math.max(profits[i - 1][k][1], profits[i - 1][k - 1][0] - prices[i]);
-                }
+                profits[i][k][0] = Math.max(profits[i - 1][k][0], profits[i - 1][k][1] + prices[i]);
+                profits[i][k][1] = Math.max(profits[i - 1][k][1], profits[i - 1][k - 1][0] - prices[i]);
             }
         }
         return profits[N - 1][3][0];

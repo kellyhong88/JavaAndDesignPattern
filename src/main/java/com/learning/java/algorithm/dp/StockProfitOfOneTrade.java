@@ -44,6 +44,7 @@ public class StockProfitOfOneTrade {
         if (prices == null || prices.length == 0) return 0;
 
         int N = prices.length;
+
         // base case
         int profits_0 = 0, profits_1 = -prices[0];
 
