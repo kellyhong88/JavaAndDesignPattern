@@ -58,6 +58,9 @@ public class QuickSort {
         print(Array1);
         sort(Array1, 0, Array1.length - 1);
         print(Array1);
+        print(Array5);
+        sort(Array5, 0, Array5.length - 1);
+        print(Array5);
     }
 
 }
