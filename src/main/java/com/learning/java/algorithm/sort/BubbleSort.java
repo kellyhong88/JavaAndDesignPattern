@@ -3,6 +3,7 @@ package com.learning.java.algorithm.sort;
 import static com.learning.java.algorithm.sort.ArrayUtils.*;
 
 /**
+ * 冒泡排序
  * In Bubble Sort, each element is compared with the next element.
  * If the front element is bigger than the back element, then the positions of the elements will be interchanged,
  * otherwise it will not be changed.

@@ -2,6 +2,9 @@ package com.learning.java.algorithm.sort;
 
 import static com.learning.java.algorithm.sort.ArrayUtils.*;
 
+/**
+ * 选择排序
+ * */
 public class SelectionSort {
 
     public static void sort(int[] array) {
