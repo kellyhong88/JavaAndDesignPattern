@@ -2,47 +2,24 @@ package com.learning.java.algorithm.dp;
 
 import static com.learning.java.algorithm.sort.ArrayUtils.*;
 
-/**
- * 第i天的股票价格是price[i]
- * 交易次数为不超过K次
- * 每天只能3种动作之一：买入、卖出、不动
- * 求最大利润
- *
- * 动态规划（Dynamic Programming）
- *
- * dp[i][k][s]：第i+1天，经过最多k次交易（1买1卖为1次交易）后，持仓情况为s（1：持仓，0：空仓）的状态
- * dp[N-1][K][0]：第N天，经过最多K次交易后，持仓情况为空仓的状态（本题想求的就是该状态下的最大利润）
- *
- * 状态转移方程
- * dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + price[i])
- * dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - price[i])
- *
- * base case
- * dp[-1][k][0] = 0
- * dp[-1][k][1] = impossible
- * dp[0][k][0] = 0
- * dp[0][k][1] = -price[0]
- * dp[i][0][0] = 0
- * dp[i][0][1] = impossible
- * dp[i][1][0] = max(dp[i-1][1][0], dp[i-1][1][1] + price[i])
- * dp[i][1][1] = max(dp[i-1][1][1], dp[i-1][0][0] - price[i])
- *
- * 参考：https://github.com/labuladong/fucking-algorithm/blob/master/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%B3%BB%E5%88%97/%E5%9B%A2%E7%81%AD%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98.md
- * */
 public class StockProfitOfOneTrade {
 
     /**
      * 交易次数为1次（K=1）
      *
      * 状态转移方程
+     * dp[i][1][0] = max(dp[i-1][1][0], dp[i-1][1][1] + price[i])
+     * dp[i][1][1] = max(dp[i-1][1][1], dp[i-1][0][0] - price[i])
+     *             = max(dp[i-1][1][1], - price[i])
+     * k都是1，不会改变，因此对状态转移方程没有影响了
      * dp[i][0] = max(dp[i-1][0], dp[i-1][1] + price[i])
-     * dp[i][1] = max(dp[i-1][1], dp[i-1][0] - price[i]) = max(dp[i-1][1], - price[i])
+     * dp[i][1] = max(dp[i-1][1], - price[i])
      *
      * base case
-     * dp[-1][0] = 0
-     * dp[-1][1] = Integer.MIN_VALUE
-     * dp[0][0] = 0
-     * dp[0][1] = -price[0]
+     * dp[-1][k][0] = 0
+     * dp[-1][k][1] = Integer.MIN_VALUE
+     * dp[0][0][0] = 0
+     * dp[0][0][1] = Integer.MIN_VALUE
      * */
     public static int calculateMaxProfit(int[] prices) {
         if (prices == null || prices.length == 0) return 0;
