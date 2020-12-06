@@ -6,7 +6,6 @@ package com.learning.java.algorithm.list;
  * b1->b2->b3->c1->c2->c3 如：3->6->2->8->7->5
  * 其中：c1->c2->c3（即：8->7->5）为共有节点
  * 如何获取交汇节点？
- *
  * */
 public class ListIntersection extends BaseList {
 
@@ -33,6 +32,15 @@ public class ListIntersection extends BaseList {
         return (p1 == null || p2 == null) ? null : p1;
     }
 
+    /**
+     * 方法二
+     * 若任一个list为null，返回null
+     * 若两个list的首节点相同，则首节点即为交汇节点
+     * 遍历两个list，若末节点不相同，则无交汇点，返回null
+     * 交汇节点前的节点数较多的list，遍历掉差距节点后，
+     * 若刚好到达另一个list（即交汇节点前的节点数较少的list）的首节点，该首节点即为交汇节点
+     * 否则对两个list开始同步依次遍历，直到找到第一个相同节点，即为交汇节点
+     * */
     public static Node findIntersectionNode2(Node head1, Node head2) {
         if (head1 == null || head2 == null) return null;
         if (head1 == head2) return head1;
