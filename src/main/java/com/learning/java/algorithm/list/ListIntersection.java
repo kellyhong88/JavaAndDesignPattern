@@ -9,31 +9,8 @@ package com.learning.java.algorithm.list;
  * */
 public class ListIntersection extends BaseList {
 
-    public static Node findIntersectionNode(Node head1, Node head2) {
-        if (head1 == null || head2 == null) return null;
-        if (head1 == head2) return head1;
-
-        Node p1 = head1;
-        Node p2 = head2;
-        boolean change1 = false, change2 = false;
-        while (p1 != null && p2 != null && p1 != p2) {
-            p1 = p1.next;
-            if (p1 == null && !change1) {
-                p1 = head2;
-                change1 = true;
-            }
-            p2 = p2.next;
-            if (p2 == null && !change2) {
-                p2 = head1;
-                change2 = true;
-            }
-        }
-
-        return (p1 == null || p2 == null) ? null : p1;
-    }
-
     /**
-     * 方法二
+     * 方法一
      * 若任一个list为null，返回null
      * 若两个list的首节点相同，则首节点即为交汇节点
      * 遍历两个list，若末节点不相同，则无交汇点，返回null
@@ -41,7 +18,7 @@ public class ListIntersection extends BaseList {
      * 若刚好到达另一个list（即交汇节点前的节点数较少的list）的首节点，该首节点即为交汇节点
      * 否则对两个list开始同步依次遍历，直到找到第一个相同节点，即为交汇节点
      * */
-    public static Node findIntersectionNode2(Node head1, Node head2) {
+    public static Node findIntersectionNode(Node head1, Node head2) {
         if (head1 == null || head2 == null) return null;
         if (head1 == head2) return head1;
 
@@ -83,6 +60,41 @@ public class ListIntersection extends BaseList {
             p2 = p2.next;
         }
         return p1;
+    }
+
+    /**
+     * 方法二
+     * 两个list同时开始依次遍历自身，遍历完之后再开始遍历对方
+     * 即：list1遍历完自己后，开始遍历list2；list2遍历完自己后，开始遍历list1
+     * 不难发现，交换遍历后首次相遇点，即为交汇节点
+     * */
+    public static Node findIntersectionNode2(Node head1, Node head2) {
+        if (head1 == null || head2 == null) return null;
+        if (head1 == head2) return head1;
+
+        Node p1 = head1;
+        Node p2 = head2;
+        boolean change1 = false, change2 = false;
+        while (p1 != null && p2 != null && p1 != p2) {
+            p1 = p1.next;
+            /**
+             * list1遍历自己结束后，开始遍历list2
+             * */
+            if (p1 == null && !change1) {
+                p1 = head2;
+                change1 = true;
+            }
+            /**
+             * list2遍历自己结束后，开始遍历list1
+             * */
+            p2 = p2.next;
+            if (p2 == null && !change2) {
+                p2 = head1;
+                change2 = true;
+            }
+        }
+
+        return (p1 == null || p2 == null) ? null : p1;
     }
 
     public static void main(String[] args) {
