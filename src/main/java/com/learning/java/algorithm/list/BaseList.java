@@ -71,9 +71,12 @@ public class BaseList {
         System.out.println();
     }
 
-    public static void printList2(List<List<Integer>> list) {
+    public static void printNestedList(List<List<Integer>> list) {
         if (CollectionUtils.isEmpty(list)) return;
-        list.forEach(list1 -> list1.forEach(item -> System.out.print(item)));
+        list.forEach(innerList -> innerList.forEach(item -> {
+            System.out.print(item);
+            System.out.print(", ");
+        }));
         System.out.println();
     }
 
