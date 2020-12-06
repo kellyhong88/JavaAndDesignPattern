@@ -1,5 +1,8 @@
 package com.learning.java.algorithm.list;
 
+/**
+ * 将2条有序list，合并为1条有序list
+ * */
 public class ListMerge extends BaseList {
 
     public static Node merge(Node h1, Node h2) {
