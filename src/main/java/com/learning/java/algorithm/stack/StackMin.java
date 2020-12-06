@@ -2,19 +2,31 @@ package com.learning.java.algorithm.stack;
 
 import java.util.Stack;
 
+/**
+ * 获取栈中的最小元素
+ * */
 public class StackMin {
 
     public Stack<Integer> mainStack = new Stack<>();
     public Stack<Integer> minStack = new Stack<>();
 
-    public void pushMy(Integer element) {
+    /**
+     * 主栈mainStack中一直正常push所有元素
+     * 最小栈minStack中只push更小的元素
+     * */
+    public void pushElement(Integer element) {
         mainStack.push(element);
         if (minStack.empty() || minStack.peek() >= element) {
             minStack.push(element);
         }
     }
 
-    public Integer popMy() {
+    /**
+     * 如果主栈mainStack的栈顶元素与最小栈minStack的栈顶元素相同，
+     * 则minStack需弹出栈顶元素
+     * mainStack则一直正常弹出栈顶元素
+     * */
+    public Integer popElement() {
         if (mainStack.empty()) return null;
         if (mainStack.peek().equals(minStack.peek())) {
             minStack.pop();
@@ -22,24 +34,28 @@ public class StackMin {
         return mainStack.pop();
     }
 
-    public Integer getMin() {
+    /**
+     * 最小栈minStack的栈顶元素一直保持为主栈mainStack中的最小元素
+     * 注：pop为弹出栈顶元素，peek为获取栈顶元素但不从栈中实际弹出
+     * */
+    public Integer getMinElement() {
         if (mainStack.empty() || minStack.empty()) return null;
         return minStack.peek();
     }
 
     public static void main(String[] args) {
         StackMin stackMin = new StackMin();
-        stackMin.pushMy(4);
-        stackMin.pushMy(9);
-        stackMin.pushMy(7);
-        stackMin.pushMy(3);
-        stackMin.pushMy(8);
-        stackMin.pushMy(5);
-        System.out.println("min element of this stack: " + stackMin.getMin());
-        stackMin.popMy();
-        stackMin.popMy();
-        stackMin.popMy();
-        System.out.println("min element of this stack: " + stackMin.getMin());
+        stackMin.pushElement(4);
+        stackMin.pushElement(9);
+        stackMin.pushElement(7);
+        stackMin.pushElement(3);
+        stackMin.pushElement(8);
+        stackMin.pushElement(5);
+        System.out.println("min element of this stack: " + stackMin.getMinElement());
+        stackMin.popElement();
+        stackMin.popElement();
+        stackMin.popElement();
+        System.out.println("min element of this stack: " + stackMin.getMinElement());
     }
 
 }
