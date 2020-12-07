@@ -1,7 +1,17 @@
 package com.learning.java.algorithm.array;
 
+/**
+ * 逆转字符串
+ * 两种诉求：
+ * 1.逆转字符串中的每个字符 如：leetcode is fun 逆转为 nuf si edocteel
+ * 2.逆转字符串中的单词顺序，但不逆转单词本身 如：leetcode is fun 逆转为 fun is leetcode
+ * 注：字符串（String）可认为是字符（char）数组
+ * */
 public class StringReverse {
 
+    /**
+     * 逆转字符串中的每个字符
+     * */
     public static void reverseWhole(char[] s, int left, int right) {
         if (s == null || left >= right) return;
         char temp;
@@ -12,6 +22,9 @@ public class StringReverse {
         }
     }
 
+    /**
+     * 逆转字符串中的每个单词
+     * */
     public static void reverseEachWord(char[] s) {
         if (s == null) return;
         int start = 0, end = 0;
@@ -21,11 +34,6 @@ public class StringReverse {
             start = end + 1;
             end++;
         }
-    }
-
-    public static void reverse(char[] s) {
-        reverseWhole(s, 0, s.length - 1);
-        reverseEachWord(s);
     }
 
     public static void print(char[] s) {
@@ -41,7 +49,12 @@ public class StringReverse {
         char[] s = {'l', 'e', 'e', 't', 'c', 'o', 'd', 'e', ' ', 'i', 's', ' ', 'f', 'u', 'n'};
         print(s);
 
-        reverse(s);
+        reverseWhole(s, 0, s.length - 1);
+        System.out.println("reverse every char in the string: ");
+        print(s);
+
+        reverseEachWord(s);
+        System.out.println("reverse the order of the words occurred in the string without reversing each word itself");
         print(s);
     }
 
