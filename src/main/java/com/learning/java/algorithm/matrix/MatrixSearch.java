@@ -2,6 +2,9 @@ package com.learning.java.algorithm.matrix;
 
 import static com.learning.java.algorithm.matrix.MatrixUtils.*;
 
+/**
+ * 矩阵（二维数组）中元素的查找
+ * */
 public class MatrixSearch {
 
     /**
