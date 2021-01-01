@@ -2,6 +2,10 @@ package com.learning.java.algorithm.array;
 
 import static com.learning.java.algorithm.sort.ArrayUtils.*;
 
+/**
+ * 数组中的元素值代表股票每天的价格
+ * 请问只有1次交易机会，可获得的最大利润是多少？
+ * */
 public class MaxProfit {
 
     public static int calculateMaxProfit(int[] array) {

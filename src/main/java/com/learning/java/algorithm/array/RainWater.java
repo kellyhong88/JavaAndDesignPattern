@@ -2,6 +2,11 @@ package com.learning.java.algorithm.array;
 
 import static com.learning.java.algorithm.sort.ArrayUtils.*;
 
+/**
+ * 数组的值代表柱子的高度
+ * 请问：数组中的所有柱子，最多能储蓄多少水呢？
+ * 示例图见：resources/photos下的rain_water.png
+ * */
 public class RainWater {
 
     public static int calculateRainWater(int[] array) {

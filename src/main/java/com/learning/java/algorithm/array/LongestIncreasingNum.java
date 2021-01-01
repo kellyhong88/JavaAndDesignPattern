@@ -2,6 +2,10 @@ package com.learning.java.algorithm.array;
 
 import static com.learning.java.algorithm.sort.ArrayUtils.*;
 
+/**
+ * 找出数组中最长的一串有序序列，返回有序序列的长度
+ * 注：构成有序序列的元素在原数组中可以连续或不连续
+ * */
 public class LongestIncreasingNum {
 
     public static int findLongestIncreasingNum(int[] array) {
@@ -24,9 +28,9 @@ public class LongestIncreasingNum {
 
     public static void main(String[] args) {
         print(Array9);
-        System.out.println("Longest increasing number of fingers: " + findLongestIncreasingNum(Array9));
+        System.out.println("Longest increasing number of figures: " + findLongestIncreasingNum(Array9));
         print(Array10);
-        System.out.println("Longest increasing number of fingers: " + findLongestIncreasingNum(Array10));
+        System.out.println("Longest increasing number of figures: " + findLongestIncreasingNum(Array10));
     }
 
 }
