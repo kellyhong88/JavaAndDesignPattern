@@ -11,6 +11,18 @@ public class LongestIncreasingNum {
     public static int findLongestIncreasingNum(int[] array) {
         if (emptyArray(array)) return 0;
 
+        /**
+         * dp[i] 表示长度为i的数组中最长有序序列的长度
+         *
+         * 状态转移方程：
+         * dp[i] = max(dp[i], dp[j] + 1) while j < i and array[j] < array[i]
+         *
+         * base case:
+         * dp[i] = 1
+         *
+         * 目标解：
+         * max(dp[i]) i = 0,1,2,...,len-1
+         * */
         int[] dp = new int[array.length];
         dp[0] = 1;
         int max = dp[0];
