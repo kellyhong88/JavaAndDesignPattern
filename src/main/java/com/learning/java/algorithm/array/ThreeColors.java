@@ -14,7 +14,7 @@ public class ThreeColors {
      * p1从第一个元素开始，每一轮比较中采取相应动作，并再往前移动一步
      * 若p1为0，与p0交换颜色/元素，p0得机会前进一步，p1正常前进一步
      * 若p1为1，p1正常前进一步
-     * 若p1为2，与p2交换颜色/元素，p2得机会前进一步，p1正常前进一步
+     * 若p1为2，与p2交换颜色/元素，p2得机会前进一步
      * */
     public static void sortColors(int[] array) {
         if (noNeedOperation(array)) return;
