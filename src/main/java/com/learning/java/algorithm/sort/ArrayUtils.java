@@ -13,6 +13,7 @@ public class ArrayUtils {
     public static int[] Array9 = {10, 9, 2, 5, 3, 7, 101, 18};
     public static int[] Array10 = {0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15};
     public static int[] Array11 = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+    public static int[] Array12 = {3, 5, 4, 0, 2, 4, 5, 2, 2, 0};
 
     public static void print(int[] array) {
         if (emptyArray(array)) return;
