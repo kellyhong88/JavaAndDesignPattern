@@ -7,7 +7,7 @@ public class ArrayUtils {
     public static int[] Array3 = {2, 0, 1, 1, 0, 2, 1, 1, 0, 2};
     public static int[] Array4 = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     public static int[] Array5 = {4, 5, 6, 7, 8, 9, 0, 1, 2, 3};
-    public static int[] Array6 = {4, 4, 5, 6, 7, 0, 0, 1, 1, 3};
+    public static int[] Array6 = {4, 4, 5, 6, 7, 7, 0, 0, 1, 3};
     public static int[] Array7 = {7, 1, 5, 3, 6, 4};
     public static int[] Array8 = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
     public static int[] Array9 = {10, 9, 2, 5, 3, 7, 101, 18};
