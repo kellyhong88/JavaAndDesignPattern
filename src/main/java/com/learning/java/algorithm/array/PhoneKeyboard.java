@@ -7,8 +7,6 @@ import java.util.Map;
 
 /**
  * 非智能手机键盘: 参考resources/photos下的phone_keyboard.png
- *
- *
  * */
 public class PhoneKeyboard {
 
