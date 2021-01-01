@@ -17,7 +17,7 @@ public class MatrixSpiral {
         if (emptyMatrix(matrix)) return list;
 
         int ROW_LEN = getRowLength(matrix), COLUMN_LEN = getColumnLength(matrix),
-                ROUNDS = Math.min(ROW_LEN, COLUMN_LEN) / 2 + 1,
+                ROUNDS = (int) Math.ceil(Math.min(ROW_LEN, COLUMN_LEN) / 2.0),
                 TOTAL = ROW_LEN * COLUMN_LEN;
         for (int round = 0; round < ROUNDS; round++) {
             /**
@@ -31,7 +31,7 @@ public class MatrixSpiral {
             if (list.size() == TOTAL) break;
 
             /**
-             * travel the right line without the first one of current line
+             * travel the right line without the first one of the current line
              * startIdx: 1 + round
              * endIdx: (ROW_LEN - 1) - round
              * */
@@ -41,7 +41,7 @@ public class MatrixSpiral {
             if (list.size() == TOTAL) break;
 
             /**
-             * travel the down line without the last one of current line
+             * travel the down line without the last one of the current line
              * startIdx: (COLUMN_LEN - 1) - 1 - round
              * endIdx: 0 + round
              * */
@@ -51,7 +51,7 @@ public class MatrixSpiral {
             if (list.size() == TOTAL) break;
 
             /**
-             * travel the left line without the first one and the last one of current line
+             * travel the left line without the first one and the last one of the current line
              * startIdx: (ROW_LEN - 1) - 1 - round
              * endIdx: 0 + 1 + round
              * */
