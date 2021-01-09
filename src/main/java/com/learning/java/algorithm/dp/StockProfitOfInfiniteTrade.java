@@ -85,6 +85,46 @@ public class StockProfitOfInfiniteTrade {
         return profits_0;
     }
 
+    /**
+     * Restrictions:
+     * you can sell the stock whenever you want after you buy the stock,
+     * but you cannot buy the stock JUST the day after you sell the stock
+     * in other words, you can only buy the stock at least 2 days after the day you sell the stock
+     *
+     * So this restriction makes 2 statuses grow to 3 statuses:
+     * 0: I have no stock and I can buy the stock today
+     * 1: I have the stock and I can sell the stock today
+     * 2: I have no stock and I cannot buy the stock today
+     *
+     * State transition:
+     * 0, 2 -> 0
+     * 0, 1 -> 1
+     * 1 -> 2
+     * */
+    public static int calculateMaxProfitWithRestriction(int[] prices) {
+        if (prices == null || prices.length == 0) return 0;
+
+        int N = prices.length;
+        int[][] profits = new int[N][3];
+
+        //base case
+        profits[0][0] = 0;
+        profits[0][1] = -prices[0];
+        profits[0][2] = Integer.MIN_VALUE;
+
+        //状态转移方程
+        for (int i = 1; i < N; i++) {
+            profits[i][0] = Math.max(profits[i - 1][0], profits[i - 1][2]);
+            profits[i][1] = Math.max(profits[i - 1][1], profits[i - 1][0] - prices[i]);
+            profits[i][2] = profits[i - 1][1] + prices[i];
+        }
+
+        /**
+         * the last day with max profit can be either status 0 (have no stock) or status 2 (have no stock and cannot buy the stock)
+         * */
+        return Math.max(profits[N - 1][0], profits[N - 1][2]);
+    }
+
     public static void main(String[] args) {
         System.out.print("Prices of " + Array7.length + " days: ");
         print(Array7);
@@ -95,6 +135,13 @@ public class StockProfitOfInfiniteTrade {
         print(Array1);
         System.out.println("You can trade as many times as you want");
         System.out.println("Maximum profit: " + calculateMaxProfit2(Array1));
+        System.out.println("--------------------------");
+        print(Array13);
+        System.out.println("You can trade as many times as you want");
+        System.out.println("Maximum profit: " + calculateMaxProfit2(Array13));
+        System.out.println("You can trade as many times as you want but there is one restriction: ");
+        System.out.println("you cannot buy the stock JUST the day after you sell the stock");
+        System.out.println("Maximum profit: " + calculateMaxProfitWithRestriction(Array13));
     }
 
 }
