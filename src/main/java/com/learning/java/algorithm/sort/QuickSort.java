@@ -13,53 +13,40 @@ import static com.learning.java.algorithm.sort.ArrayUtils.*;
  */
 public class QuickSort {
 
-    static void sort(int[] array, int left, int right) {
+    public static void quickSort(int[] array, int start, int end) {
         if (noNeedOperation(array)) return;
-        if (left >= right) return;
+        if (start >= end) return;
 
-        int i = left, j = right, pivot, temp;
-        pivot = array[left]; //取第一个数为基准数，暂存下基准数
+        int left = start, right = end, pivot = array[left]; // 取第一个数为基准数，暂存下基准数
 
-        while (i != j) {
-            //先从右边开始找，找比基准数小的数（找到后需把这个数移至基准数的左边）
-            while (array[j] >= pivot && i < j) {
-                j--;
-            }
-
-            //再从左边开始找，找比基准数大的数（找到后需把这个数移至基准数的右边）
-            while (array[i] <= pivot && i < j) {
-                i++;
-            }
-
-            //交换两个数的位置
-            if (i < j) {
-                temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-                i++;
-                j--;
-            }
+        while (left < right) {
+            // 先从右边开始找，找比基准数小的数
+            while (left < right && array[right] >= pivot) right--;
+            // 找到后把这个数赋值给当前left指向的位置（即将这个数移至基准数的左边）
+            array[left] = array[right];
+            // 再从左边开始找，找比基准数大的数
+            while (left < right && array[left] <= pivot) left++;
+            // 找到后把这个数赋值给当前right指向的位置（即将这个数移至基准数的右边）
+            array[right] = array[left];
         }
 
-        //若基准数大于array[i]，则将基准数与array[i]对换
-        if (pivot > array[i]) {
-            array[left] = array[i];
-            array[i] = pivot;
-        }
+        // 跳出循环时low与high相等，此时的low或high就是pivot的正确位置
+        array[left] = pivot;
 
         //递归处理基准数左边的数组
-        sort(array, left, i);
+        quickSort(array, start, left - 1);
 
         //递归处理基准数右边的数组
-        sort(array, i + 1, right);
+        quickSort(array, left + 1, end);
+
     }
 
     public static void main(String[] args) {
         print(Array1);
-        sort(Array1, 0, Array1.length - 1);
+        quickSort(Array1, 0, Array1.length - 1);
         print(Array1);
         print(Array5);
-        sort(Array5, 0, Array5.length - 1);
+        quickSort(Array5, 0, Array5.length - 1);
         print(Array5);
     }
 
