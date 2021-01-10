@@ -46,9 +46,9 @@ public class ArrayDuplicate {
     public static int[] removeDuplicatesNotTogether(int[] array) {
         if (noNeedOperation(array)) return array;
 
-        boolean[] flag = new boolean[array.length];
+        boolean[] flag = new boolean[array.length * 2];
 
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length * 2; i++) {
             flag[i] = false;
         }
 
@@ -62,7 +62,7 @@ public class ArrayDuplicate {
 
         int[] array2 = new int[length];
         int j = 0;
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length * 2; i++) {
             if (flag[i]) {
                 array2[j++] = i;
             }
@@ -77,6 +77,10 @@ public class ArrayDuplicate {
         print(removeDuplicatesWhileTogether(array));
 
         array = Array12;
+        print(array);
+        print(removeDuplicatesNotTogether(array));
+
+        array = Array15;
         print(array);
         print(removeDuplicatesNotTogether(array));
     }
