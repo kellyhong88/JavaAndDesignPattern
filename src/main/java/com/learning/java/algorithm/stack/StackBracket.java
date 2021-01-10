@@ -30,6 +30,10 @@ public class StackBracket {
                 switch (half) {
                     case ')':
                         if (previousHalf != '(') return false;
+                        /**
+                         * break in switch is very important
+                         * because program will go to next case without break
+                         * */
                         break;
                     case ']':
                         if (previousHalf != '[') return false;
@@ -40,7 +44,9 @@ public class StackBracket {
                 }
             }
         }
-        // stack should be empty if expression is paired or balanced
+        /**
+         * stack should be empty if expression is paired or balanced
+         * */
         return stack.empty();
     }
 
