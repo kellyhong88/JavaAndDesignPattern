@@ -97,12 +97,16 @@ public class BinaryTree {
         Node n5 = tree.new Node(5);
         Node n6 = tree.new Node(6);
         Node n7 = tree.new Node(7);
+        Node n8 = tree.new Node(8);
+        Node n9 = tree.new Node(9);
         root.left = n2;
         root.right = n3;
         n2.left = n4;
         n2.right = n5;
         n3.left = n6;
         n3.right = n7;
+        n7.left = n8;
+        n7.right = n9;
         return root;
     }
 
