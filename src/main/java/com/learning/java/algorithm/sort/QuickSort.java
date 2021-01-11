@@ -45,6 +45,7 @@ public class QuickSort {
         print(Array1);
         quickSort(Array1, 0, Array1.length - 1);
         print(Array1);
+
         print(Array5);
         quickSort(Array5, 0, Array5.length - 1);
         print(Array5);
