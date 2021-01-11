@@ -31,6 +31,21 @@ public class MatrixUtils {
             {12, 11, 10, 9}
     };
 
+    public static int[][] MatrixE = {
+            {1, 1, 1, 1, 0},
+            {1, 1, 0, 1, 0},
+            {1, 1, 0, 0, 0},
+            {0, 0, 0, 0, 0}
+    };
+
+    public static int[][] MatrixF = {
+            {1, 1, 1, 0, 0},
+            {1, 1, 1, 0, 0},
+            {1, 1, 0, 1, 0},
+            {0, 0, 0, 0, 1},
+            {0, 0, 0, 1, 1}
+    };
+
     public static boolean emptyMatrix(int[][] matrix) {
         return matrix == null || matrix.length == 0 || matrix[0].length == 0;
     }
