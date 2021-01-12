@@ -22,10 +22,13 @@ public class QuickSort {
         while (left < right) {
             // 先从右边开始找，找比基准数小的数
             while (left < right && array[right] >= pivot) right--;
+
             // 找到后把这个数赋值给当前left指向的位置（即将这个数移至基准数的左边）
             array[left] = array[right];
+
             // 再从左边开始找，找比基准数大的数
             while (left < right && array[left] <= pivot) left++;
+
             // 找到后把这个数赋值给当前right指向的位置（即将这个数移至基准数的右边）
             array[right] = array[left];
         }

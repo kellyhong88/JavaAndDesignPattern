@@ -55,21 +55,25 @@ public class MedianNumber {
         if (start > end) return -1;
 
         // 快速排序的partition算法
-        int left = start, right = end, pivot = array[left];
-        while (left < right) {
-            while (left < right && array[right] >= pivot) right--;
-            array[left] = array[right];
-            while (left < right && array[left] <= pivot) left++;
-            array[right] = array[left];
+        int l = start, r = end, pivot = array[l];
+        while (l < r) {
+            while (l < r && array[r] >= pivot) {
+                r--;
+            }
+            array[l] = array[r];
+            while (l < r && array[l] <= pivot) {
+                l++;
+            }
+            array[r] = array[l];
         }
 
         // 因为递归性质，所以不是简单的left与targetPos比较，而是(left - start)与targetPos比较
-        if ((left - start) == targetPos) {
-            return array[left];
-        } else if ((left - start) > targetPos) {
-            return query(array, start, left - 1, targetPos);
+        if ((l - start) == targetPos) {
+            return array[l];
+        } else if ((l - start) > targetPos) {
+            return query(array, start, l - 1, targetPos);
         } else {
-            return query(array, left + 1, end, targetPos - (left - start) - 1);
+            return query(array, l + 1, end, targetPos - (l - start) - 1);
         }
     }
 
