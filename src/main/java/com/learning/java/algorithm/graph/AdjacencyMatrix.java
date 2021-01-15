@@ -16,7 +16,7 @@ public class AdjacencyMatrix {
          * 节点
          * 可用list存储节点，也可用array存储节点
          */
-        private List<String> vertexes = new ArrayList<>();
+        private List<String> vertexes;
 
         /**
          * 边
