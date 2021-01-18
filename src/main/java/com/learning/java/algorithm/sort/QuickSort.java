@@ -33,7 +33,7 @@ public class QuickSort {
             array[right] = array[left];
         }
 
-        // 跳出循环时low与high相等，此时的low或high就是pivot的正确位置
+        // 跳出循环时left与right相等，此时的left或right就是pivot的正确位置
         array[left] = pivot;
 
         //递归处理基准数左边的数组
