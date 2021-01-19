@@ -21,6 +21,7 @@ public class AdjacencyMatrix {
          * 边
          * 邻接矩阵中的边用矩阵（即二维数组）来存储
          * 二维数组中的横纵索引即为两个节点的索引（对应vertexes中的索引）
+         * 若为有向图，则横索引是边的头节点的索引，纵索引是边的尾节点的索引
          * 二维数组中的值：若两个节点之间没有边，则值为0；若两个节点之间有边，则值为1或weight（权重值）
          */
         private int[][] edges;
@@ -127,7 +128,7 @@ public class AdjacencyMatrix {
         System.out.println("the first neighbor of " + "Vertex " + graph.getVertex(0)
                 + " is " + graph.getVertex(graph.getFirstNeighbor(0)));
         System.out.println("the second neighbor of " + "Vertex " + graph.getVertex(0)
-                + "is " + graph.getVertex(graph.getNextNeighbor(0, graph.getFirstNeighbor(0))));
+                + " is " + graph.getVertex(graph.getNextNeighbor(0, graph.getFirstNeighbor(0))));
     }
 
 
