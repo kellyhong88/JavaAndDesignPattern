@@ -98,6 +98,8 @@ public class AdjacencyList {
 
         /**
          * 边的另一个尾/头节点名称
+         * 若用邻接表，则此处为尾节点
+         * 若用逆邻接表，则此处为头节点
          * */
         private String vertex;
 
