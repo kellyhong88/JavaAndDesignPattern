@@ -18,13 +18,24 @@ public class StackBracket {
      * 若不可配对，则not balanced，结束遍历
      */
     public static boolean isPaired(String expression) {
-        Stack<Character> stack = new Stack<>();
+        if (expression == null) return false;
 
+        Stack<Character> stack = new Stack<>();
         for (int i = 0; i < expression.length(); i++) {
             char half = expression.charAt(i);
+            /**
+             * 遍历到左括号，则入栈
+             * */
             if (half == '(' || half == '[' || half == '{') {
                 stack.push(half);
-            } else {
+            }
+            /**
+             * 遍历到右括号，则弹出栈顶元素，并与当前右括号校验是否匹配
+             * */
+            else {
+                /**
+                 * 如果栈为空，则没有左括号与之匹配，自然不可配对
+                 * */
                 if (stack.empty()) return false;
                 char previousHalf = stack.pop();
                 switch (half) {
@@ -55,9 +66,11 @@ public class StackBracket {
         String expression2 = "[()]{}{[()()]()}";
         String expression3 = "[(])";
         String expression4 = "{[()]";
+        String expression5 = ")(]";
         System.out.println(expression1 + (isPaired(expression1) ? " is paired" : " is not balanced"));
         System.out.println(expression2 + (isPaired(expression2) ? " is paired" : " is not balanced"));
         System.out.println(expression3 + (isPaired(expression3) ? " is paired" : " is not balanced"));
         System.out.println(expression4 + (isPaired(expression4) ? " is paired" : " is not balanced"));
+        System.out.println(expression5 + (isPaired(expression5) ? " is paired" : " is not balanced"));
     }
 }
