@@ -6,7 +6,7 @@ package com.learning.java.algorithm.list;
  */
 public class ListReverse extends BaseList {
 
-    static Node reverse(Node head) {
+    public static Node reverse(Node head) {
         if (isEmptyOrOnlyOne(head)) return head;
 
         Node p1 = head;
@@ -25,12 +25,24 @@ public class ListReverse extends BaseList {
         return head;
     }
 
+    public static Node reverseRecursively(Node head) {
+        if (isEmptyOrOnlyOne(head)) return head;
+
+        Node last = reverseRecursively(head.next);
+        head.next.next = head;
+        head.next = null;
+        return last;
+    }
+
     public static void main(String[] args) {
         Node head = createSortedList();
         print(head);
 
-        head = reverse(head); //将单向链表逆序
-        print(head);
+        print(reverse(head));
+
+        head = createSortedList();
+        print(reverseRecursively(head));
+
     }
 
 }
