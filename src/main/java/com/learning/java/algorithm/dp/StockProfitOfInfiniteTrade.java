@@ -97,6 +97,10 @@ public class StockProfitOfInfiniteTrade {
      * 2: I have no stock and I cannot buy the stock today
      *
      * State transition:
+     * 0 -> 0, 1
+     * 1 -> 1, 2
+     * 2 -> 0
+     *
      * 0, 2 -> 0
      * 0, 1 -> 1
      * 1 -> 2
