@@ -18,6 +18,7 @@ public class BinarySearchTree extends BinaryTree {
     public static void main(String[] args) {
         Node root = createBinarySearchTree();
         System.out.println(isValidBinarySearchTree(root, null, null));
+        System.out.println("Print a binary search tree in InOrder:");
         printInOrder(root);
     }
 
