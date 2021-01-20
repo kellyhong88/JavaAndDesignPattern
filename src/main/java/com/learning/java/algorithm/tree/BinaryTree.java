@@ -105,8 +105,8 @@ public class BinaryTree {
         n2.right = n5;
         n3.left = n6;
         n3.right = n7;
-        n7.left = n8;
-        n7.right = n9;
+        n4.left = n8;
+        n4.right = n9;
         return root;
     }
 
@@ -130,9 +130,17 @@ public class BinaryTree {
 
     public static void main(String[] args) {
         Node root = createBinaryTree();
+
+        System.out.println("Print tree in PreOrder");
         printPreOrder(root);
+
+        System.out.println("Print tree in InOrder");
         printInOrder(root);
+
+        System.out.println("Print tree in PostOrder");
         printPostOrder(root);
+
+        System.out.println("Print tree in LevelOrder");
         printLevelOrder(root);
     }
 
