@@ -20,6 +20,7 @@ public class QuickSort {
         int left = start, right = end, pivot = array[left]; // 取第一个数为基准数，暂存下基准数
 
         while (left < right) {
+
             // 先从右边开始找，找比基准数小的数
             while (left < right && array[right] >= pivot) right--;
 
@@ -33,7 +34,11 @@ public class QuickSort {
             array[right] = array[left];
         }
 
-        // 跳出循环时left与right相等，此时的left或right就是pivot的正确位置
+        /**
+         * 跳出循环时left与right相等，此时的left或right就是pivot的正确位置
+         * 之后不管pivot左边和右边的子数组如何调整，pivot的位置不会再变了
+         * 因为pivot左边的数都比pivot小，pivot右边的数都比pivot大
+         * */
         array[left] = pivot;
 
         //递归处理基准数左边的数组
