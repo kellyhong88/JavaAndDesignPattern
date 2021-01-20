@@ -3,7 +3,8 @@ package com.learning.java.algorithm.list;
 /**
  * 有环list：5->3->7->2->6->4->1->2->...
  * 1.如何判断list中是否有环？
- * 运用数学中的追及问题：环形跑道上两个运动员，跑得快的人势必会追上跑得慢的人，第n次追上是超前n圈
+ * 运用数学中的追及问题：环形跑道上两个运动员，跑得快的人势必会追上跑得慢的人
+ * 第1次追上是超前1圈，第2次追上是超前2圈...第n次追上是超前n圈
  * 因此，两个指针，p1每次前进1个节点，p2每次前进2个节点，若list有环，则两个指针迟早会相遇
  * 2.如何求出有环list的环长？
  * 两个指针首次相遇，证明list有环
@@ -23,7 +24,7 @@ package com.learning.java.algorithm.list;
  * */
 public class ListCycle extends BaseList {
 
-    static boolean isCycle(Node head) {
+    public static boolean isCycle(Node head) {
         Node p1 = head;
         Node p2 = head;
         while (p2 != null && p2.next != null) {
@@ -34,7 +35,7 @@ public class ListCycle extends BaseList {
         return false;
     }
 
-    static int getCycleLength(Node head) {
+    public static int getCycleLength(Node head) {
         Node firstMeet = firstMeet(head);
         if (firstMeet == null) return 0;
         Node p1 = firstMeet;
@@ -49,7 +50,7 @@ public class ListCycle extends BaseList {
         return len;
     }
 
-    static Node firstMeet(Node head) {
+    public static Node firstMeet(Node head) {
         Node p1 = head;
         Node p2 = head;
         while (p2 != null && p2.next != null) {
@@ -60,7 +61,7 @@ public class ListCycle extends BaseList {
         return null;
     }
 
-    static Node cycleEntry(Node head) {
+    public static Node cycleEntry(Node head) {
         if (isEmptyOrOnlyOne(head)) return null;
         Node p1 = head;
         Node p2 = firstMeet(head);
