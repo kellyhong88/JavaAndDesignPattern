@@ -6,8 +6,15 @@ import com.learning.java.algorithm.tree.BinaryTree.*;
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+/**
+ * 锯齿遍历/蛇形遍历/之字形遍历二叉树
+ * 第1层正序遍历 -> 第2层逆序遍历 -> 第3层正序遍历 -> 第4层逆序遍历 -> ...
+ * */
 public class BinaryTreeZigzag {
 
+    /**
+     * 用列队实现蛇形遍历
+     * */
     public static List<List<Integer>> zigzagTraverseUsingQueue(Node root) {
         List<List<Integer>> result = new LinkedList<>();
         if (root == null) return result;
@@ -42,6 +49,9 @@ public class BinaryTreeZigzag {
         return result;
     }
 
+    /**
+     * 用栈实现蛇形遍历
+     * */
     public static List<List<Integer>> zigzagTraverseUsingStack(Node root) {
         List<List<Integer>> result = new LinkedList<>();
         if (root == null) return result;
@@ -60,6 +70,11 @@ public class BinaryTreeZigzag {
                 while (!stackA.empty()) {
                     Node node = stackA.pop();
                     resultOfCurrentLevel.add(node.data);
+                    /**
+                     * 遍历stackA中的父节点时，孩子节点压入stackB
+                     * stackA的父节点是正序遍历，因此孩子节点正序压入stackB
+                     * 从而stackB中的孩子节点出栈时便是逆序了
+                     * */
                     if (node.left != null) stackB.push(node.left);
                     if (node.right != null) stackB.push(node.right);
                 }
@@ -70,6 +85,11 @@ public class BinaryTreeZigzag {
                 while (!stackB.empty()) {
                     Node node = stackB.pop();
                     resultOfCurrentLevel.add(node.data);
+                    /**
+                     * 遍历stackB中的父节点时，孩子节点压入stackA
+                     * stackB的父节点是逆序遍历，因此孩子节点逆序压入stackA
+                     * 从而stackA中的孩子节点出栈时便是正序了
+                     * */
                     if (node.right != null) stackA.push(node.right);
                     if (node.left != null) stackA.push(node.left);
                 }
