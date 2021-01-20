@@ -8,8 +8,8 @@ import static com.learning.java.algorithm.sort.ArrayUtils.Array5;
  * 归并排序用到了两种思想：二分思想/分治法 和 递归思想
  * 归并排序速度仅次于快速排序
  * 归并排序是一种稳定的排序算法
- * 时间复杂度：O(nlgn)
- * 空间复杂度：O(n)
+ * 时间复杂度：O(NlgN)
+ * 空间复杂度：O(N)
  * */
 public class MergeSort {
 
@@ -47,8 +47,10 @@ public class MergeSort {
             sortedArray[k++] = array[j++];
         }
 
-        // assign sortedArray to the original array
-        // 因为归并也是递归的，当下轮次只需赋值left到right部分
+        /**
+         * assign sortedArray to the original array
+         * 因为归并也是递归的，当下轮次只需赋值left到right部分
+         * */
         for (k = left; k <= right; k++){
             array[k] = sortedArray[k];
         }
