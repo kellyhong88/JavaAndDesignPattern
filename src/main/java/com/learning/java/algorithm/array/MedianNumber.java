@@ -45,7 +45,6 @@ public class MedianNumber {
      *
      * 5.递归调用上面几步，就可以找到中位数了
      * */
-
     public static int queryMedian(int[] array) {
         if (emptyArray(array)) return -1;
         return query(array, 0, array.length - 1, array.length/2);
@@ -55,25 +54,28 @@ public class MedianNumber {
         if (start > end) return -1;
 
         // 快速排序的partition算法
-        int l = start, r = end, pivot = array[l];
-        while (l < r) {
-            while (l < r && array[r] >= pivot) {
-                r--;
+        int left = start, right = end, pivot = array[left];
+        while (left < right) {
+            while (left < right && array[right] >= pivot) {
+                right--;
             }
-            array[l] = array[r];
-            while (l < r && array[l] <= pivot) {
-                l++;
+            array[left] = array[right];
+            while (left < right && array[left] <= pivot) {
+                left++;
             }
-            array[r] = array[l];
+            array[right] = array[left];
         }
 
-        // 因为递归性质，所以不是简单的left与targetPos比较，而是(left - start)与targetPos比较
-        if ((l - start) == targetPos) {
-            return array[l];
-        } else if ((l - start) > targetPos) {
-            return query(array, start, l - 1, targetPos);
+        /**
+         * 跳出循环时left与right相等，此时的left或right就是所选枢纽值pivot的位置
+         * 因为递归性质，所以不是简单的left与targetPos比较，而是(left - start)与targetPos比较
+         * */
+        if ((left - start) == targetPos) {
+            return array[left];
+        } else if ((left - start) > targetPos) {
+            return query(array, start, left - 1, targetPos);
         } else {
-            return query(array, l + 1, end, targetPos - (l - start) - 1);
+            return query(array, left + 1, end, targetPos - (left - start) - 1);
         }
     }
 
