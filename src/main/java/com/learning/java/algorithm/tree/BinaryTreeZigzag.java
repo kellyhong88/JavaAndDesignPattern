@@ -17,6 +17,8 @@ public class BinaryTreeZigzag {
      * */
     public static List<List<Integer>> zigzagTraverseUsingQueue(Node root) {
         List<List<Integer>> result = new LinkedList<>();
+
+        // 根节点为空或只有一个根节点
         if (root == null) return result;
         if (root.left == null && root.right == null) {
             result.add(Arrays.asList(root.data));
@@ -24,7 +26,9 @@ public class BinaryTreeZigzag {
         }
 
         Queue<Node> queue = new ConcurrentLinkedQueue<>();
+        // 队列初始时放入根节点
         queue.add(root);
+
         // 层数 0：第一层  1：第二层 ...
         int level = 0;
         while (!queue.isEmpty()) {
@@ -54,6 +58,8 @@ public class BinaryTreeZigzag {
      * */
     public static List<List<Integer>> zigzagTraverseUsingStack(Node root) {
         List<List<Integer>> result = new LinkedList<>();
+
+        // 根节点为空或只有一个根节点
         if (root == null) return result;
         if (root.left == null && root.right == null) {
             result.add(Arrays.asList(root.data));
@@ -62,6 +68,7 @@ public class BinaryTreeZigzag {
 
         Stack<Node> stackA = new Stack<>();
         Stack<Node> stackB = new Stack<>();
+        // stackA初始时放入根节点
         stackA.push(root);
 
         while (!stackA.empty() || !stackB.empty()) {
