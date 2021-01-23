@@ -9,7 +9,7 @@ import static com.learning.java.algorithm.matrix.MatrixUtils.*;
  * 行列有序矩阵的特点：
  * 1.矩阵的行有序
  * 2.矩阵的列有序
- * 3.矩阵未必是蛇形有序（即未必整体有序）
+ * 3.矩阵未必整体有序
  */
 public class MatrixKSmallest {
 
@@ -37,11 +37,13 @@ public class MatrixKSmallest {
     /**
      * 最大堆法
      * 遍历矩阵中所有元素，构建一个最大堆
-     * 当堆中元素大于k时，将最大堆首元素去掉
-     * 遍历结束，堆中首元素即为矩阵第k小的元素
+     * 当堆中元素个数大于k时，将最大堆首元素去掉
+     * 从而确保是一个最多只有k个元素的最大堆
+     * 遍历结束，该最大堆就是矩阵前k小的元素集
+     * 最大堆中的首元素即为矩阵第k小的元素
      */
     public static int kSmallestByHeap(int[][] matrix, int k) {
-        if (emptyMatrix(matrix)) return Integer.MAX_VALUE;
+        if (emptyMatrix(matrix) || k > matrix.length * matrix[0].length) return Integer.MAX_VALUE;
 
         // 用优先队列模拟最大堆/最小堆
         PriorityQueue<Node> heap = new PriorityQueue<>();
@@ -54,13 +56,13 @@ public class MatrixKSmallest {
             }
         }
 
-        return heap.peek().value;
+        return heap.peek() == null ? Integer.MAX_VALUE : heap.peek().value;
     }
 
     /**
      * 二分法
      * 行列有序矩阵的左上角的数字一定是最小的，右下角的数字一定是最大的
-     * 但因为不一定是蛇形有序，所以矩阵中跨行之间的元素并不是严格有序的
+     * 但因为不一定是整体有序，所以矩阵中跨行之间的元素并不是严格有序的
      * 所以我们可以根据搜索范围，计算出中间值midValue，运用二分查找法
      * */
     public static int kSmallestByDivision(int[][] matrix, int k) {
