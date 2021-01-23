@@ -14,6 +14,7 @@ public class AdjacencyMatrix {
         /**
          * 节点
          * 可用list存储节点，也可用array存储节点
+         * 还可以用map来存储节点
          */
         private List<String> vertexes;
 
@@ -48,14 +49,14 @@ public class AdjacencyMatrix {
 
         // 获取节点
         public String getVertex(int indexOfVertex) {
-            if (indexOfVertex < 0 || indexOfVertex > vertexes.size()) return "NO SUCH VERTEX";
+            if (indexOfVertex < 0 || indexOfVertex >= vertexes.size()) return "NO SUCH VERTEX";
             return vertexes.get(indexOfVertex);
         }
 
         // 获取边的权重（0则代表无边）
         public int getWeight(int indexOfV1, int indexOfV2) {
-            if (indexOfV1 < 0 || indexOfV1 > vertexes.size()
-                    || indexOfV2 < 0 || indexOfV2 > vertexes.size())
+            if (indexOfV1 < 0 || indexOfV1 >= vertexes.size()
+                    || indexOfV2 < 0 || indexOfV2 >= vertexes.size())
                 return 0;
             return edges[indexOfV1][indexOfV2];
         }
