@@ -28,7 +28,7 @@ public class MatrixIsland {
                  * */
                 if (matrix[i][j] == 1) {
                     /**
-                     * 用深度优先遍历DFS来遍历出孤岛的范围
+                     * 用深度优先遍历DFS来遍历出孤岛的岛域/范围
                      * */
                     dfs(matrix, i, j);
                     /**
@@ -45,10 +45,15 @@ public class MatrixIsland {
      * 深度优先遍历
      * */
     public static void dfs(int[][] matrix, int i, int j) {
+        /**
+         * 边界情况判断（corner cases）
+         * 同时也是递归的终止条件（递归一定要有终止条件，不然就是无限循环）
+         * */
         if (i < 0 || i >= matrix.length || j < 0 || j >= matrix[0].length) return;
 
         /**
          * 如果是0(水域) 或 2(元素已被遍历过)，则结束遍历
+         * 是递归的另一个终止条件
          * */
         if (matrix[i][j] != 1) return;
 
