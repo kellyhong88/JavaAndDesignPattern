@@ -51,7 +51,7 @@ public class MergeSort {
          * assign sortedArray to the original array
          * 因为归并也是递归的，当下轮次只需赋值left到right部分
          * */
-        for (k = left; k <= right; k++){
+        for (k = left; k <= right; k++) {
             array[k] = sortedArray[k];
         }
     }
